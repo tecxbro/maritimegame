@@ -1,0 +1,15 @@
+{
+  "name": "maritime-buoy-run",
+  "version": "7.0.2",
+  "private": true,
+  "description": "Six-captain tropical boat racing: one player and five AI rivals.",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "start": "node scripts/serve.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

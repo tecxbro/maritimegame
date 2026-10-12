@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>River renderer browser benchmark</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#10232d;color:#edf8fc;font:15px system-ui,sans-serif}header,main{padding:16px}h1{font-size:22px;margin:0 0 8px}p{max-width:1100px;line-height:1.5}button{font:inherit;padding:10px 16px;border:0;border-radius:7px;margin:0 8px 8px 0;cursor:pointer}button:disabled{opacity:.45;cursor:default}#abort{background:#ffbcac}#stage{width:1180px;height:757px;overflow:hidden;background:#000}canvas{display:block;width:1180px;height:757px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#07151d;padding:14px;border-radius:8px;max-width:1180px}#status{min-height:24px}details{max-width:1180px}
+</style>
+</head>
+<body>
+<header>
+<h1>River renderer: actual browser Canvas benchmark</h1>
+<p>Each run uses the same deterministic moving race and production camera, 20 warmup frames, then 180 measured animation frames. Keep this tab visible. Run both variants in the same browser and repeat in reverse order to check run-order effects.</p>
+<button id="baseline" type="button">Run baseline</button><button id="optimized" type="button">Run optimized</button><button id="abort" type="button" disabled>Abort</button>
+<p id="status" role="status" aria-live="polite">Ready. Nothing runs until you press a button.</p>
+</header>
+<main>
+<div id="stage"><canvas id="scene" width="1180" height="757" aria-label="Live benchmark render"></canvas></div>
+<h2>Results</h2>
+<pre id="results">[]</pre>
+<details><summary>What the numbers mean</summary><p>Render JS time measures only the synchronous production renderer.draw call. Observed frame intervals and FPS use real requestAnimationFrame timestamps, including rendering, browser scheduling, and other work between callbacks. This is browser callback cadence, not a guarantee that every frame reached the display. Canvas raster/compositor work may occur asynchronously and is not all captured by render JS time. No getImageData flush, mocked Canvas, synthetic frame times, or headless arithmetic FPS is used. Module import, asset load, and initialization are excluded. The logical scene is always 1180 × 757 CSS pixels, even if the browser window is smaller. Each renderer chooses its own production backing resolution; results report it explicitly, so these runs compare production configurations rather than equal pixel workloads. Loading both variants shares the same asset URLs and Three.js module. Hidden tabs abort rather than yield misleading completed scores.</p></details>
+</main>
+<script type="module" src="./benchmark.js"></script>
+</body>
+</html>

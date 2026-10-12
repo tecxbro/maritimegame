@@ -1,0 +1,171 @@
+{
+  "failures": 0,
+  "results": [
+    {
+      "name": "All 30 unique captain matchups initialize and retry",
+      "status": "PASS",
+      "details": {
+        "matchups": 30
+      }
+    },
+    {
+      "name": "Shared width collision stops at actual shore clearance with no acceleration",
+      "status": "PASS",
+      "details": {
+        "locations": 738,
+        "rendererImportsSharedWidth": true
+      }
+    },
+    {
+      "name": "Stopped left/right steering cannot strafe",
+      "status": "PASS",
+      "details": "300 frames in both directions"
+    },
+    {
+      "name": "Left/right controls turn oppositely under power and braking stops",
+      "status": "PASS",
+      "details": {
+        "lanes": [
+          5.03070659854935,
+          -4.9280743417292685
+        ]
+      }
+    },
+    {
+      "name": "Reset latches once per hold and rearms after release",
+      "status": "PASS",
+      "details": {
+        "resets": 2
+      }
+    },
+    {
+      "name": "Paused camera changes immediately and restart snaps selected mode",
+      "status": "PASS",
+      "details": "helm and far change while paused; far survives restart"
+    },
+    {
+      "name": "Countdown pause/resume, race pause, and retry clear state",
+      "status": "PASS",
+      "details": "countdown and race freeze; retry resets inputs/timers/positions"
+    },
+    {
+      "name": "Finish interpolation, winner ordering and exact HUD timer",
+      "status": "PASS",
+      "details": [
+        [
+          100.00227716982404,
+          100.01674230205673
+        ],
+        [
+          100.01594018876827,
+          100.00239262461314
+        ]
+      ]
+    },
+    {
+      "name": "Touch independent fingers and cancellation",
+      "status": "PASS"
+    },
+    {
+      "name": "Menu space retains button keyboard activation",
+      "status": "PASS"
+    },
+    {
+      "name": "Executable full race under closed-loop controls",
+      "status": "PASS",
+      "details": {
+        "delay": 0,
+        "finishTimes": [
+          93.95469497624357,
+          0
+        ],
+        "rank": 1,
+        "bankFrames": 0,
+        "steps": 5638
+      }
+    },
+    {
+      "name": "Late player finishes after CPU, no premature race timeout",
+      "status": "PASS",
+      "details": {
+        "delay": 150,
+        "finishTimes": [
+          243.94284265771168,
+          132.45898515969753
+        ],
+        "rank": 2,
+        "bankFrames": 0,
+        "steps": 5637
+      }
+    },
+    {
+      "name": "No-input idle race remains recoverable after 10 minutes",
+      "status": "PASS",
+      "details": "No automatic DNF/timeout exists; retry remains available"
+    },
+    {
+      "name": "Bank contact cannot push either racer beyond shoreline",
+      "status": "PASS",
+      "details": {
+        "cases": 12
+      }
+    },
+    {
+      "name": "Paused mode changes snap FOV immediately at rest and full speed",
+      "status": "PASS",
+      "details": [
+        {
+          "mode": "helm",
+          "speed": 0,
+          "fov": 70
+        },
+        {
+          "mode": "far",
+          "speed": 0,
+          "fov": 55
+        },
+        {
+          "mode": "chase",
+          "speed": 0,
+          "fov": 55
+        },
+        {
+          "mode": "helm",
+          "speed": 44,
+          "fov": 80
+        },
+        {
+          "mode": "far",
+          "speed": 44,
+          "fov": 63
+        },
+        {
+          "mode": "chase",
+          "speed": 44,
+          "fov": 63
+        }
+      ]
+    },
+    {
+      "name": "Single Z keydown recovers immediately; repeat does not retrigger",
+      "status": "PASS",
+      "details": {
+        "immediateSnaps": 1,
+        "afterRepeatedEvents": 1,
+        "afterSecondPress": 2
+      }
+    },
+    {
+      "name": "RESET button works in race and is disabled outside race",
+      "status": "PASS",
+      "details": "menu/countdown/paused/finish guarded; race click immediately recovers"
+    },
+    {
+      "name": "Recovery preserves progress and camera mode, never adds speed",
+      "status": "PASS",
+      "details": {
+        "cases": 18
+      }
+    }
+  ]
+}

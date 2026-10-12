@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0a0d0e">
+<title>Buoy Run — a Maritime boat game</title>
+<meta name="description" content="Small boat. Big ocean. Choose your captain and sail an endless dithered ocean. A playable dithered boat game.">
+<meta name="twitter:card" content="player">
+<meta name="twitter:title" content="Small boat. Big ocean.">
+<meta name="twitter:description" content="A tiny, playable boat game. Six captains. Three cameras. An endless ocean. Keyboard + touch.">
+<meta name="twitter:image" content="__PUBLIC_URL__/preview.png">
+<meta name="twitter:image:alt" content="Buoy Run: a rear-facing captain sailing a dithered ocean toward coral buoys.">
+<meta name="twitter:player" content="__PUBLIC_URL__/player.html">
+<meta name="twitter:player:width" content="800">
+<meta name="twitter:player:height" content="600">
+__TWITTER_SITE__
+<meta property="og:type" content="website">
+<meta property="og:title" content="Buoy Run — Small boat. Big ocean.">
+<meta property="og:description" content="Choose your captain and sail an endless dithered ocean. Play with keyboard or touch.">
+<meta property="og:url" content="__PUBLIC_URL__/">
+<meta property="og:image" content="__PUBLIC_URL__/preview.png">
+<meta property="og:image:width" content="500">
+<meta property="og:image:height" content="436">
+<link rel="canonical" href="__PUBLIC_URL__/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230a0d0e'/%3E%3Cpath d='M8 28h33l-7 9H15zM17 17h15v9H17zM25 8v17' stroke='%23eeeee8' fill='none' stroke-width='2'/%3E%3Ccircle cx='35' cy='10' r='3' fill='%23ff5c51'/%3E%3C/svg%3E">
+<style>__STYLE__</style>
+</head>
+<body>
+<div class="page">
+<header class="masthead">
+ <div class="wordmark"><svg viewBox="0 0 30 30" aria-hidden="true"><g fill="currentColor"><rect x="3" y="5" width="3" height="3"/><rect x="9" y="5" width="3" height="3"/><rect x="15" y="5" width="3" height="3"/><rect x="21" y="5" width="3" height="3"/><rect x="3" y="11" width="3" height="3"/><rect x="9" y="11" width="3" height="3"/><rect x="15" y="11" width="3" height="3"/><rect x="21" y="11" width="3" height="3"/><rect x="9" y="17" width="3" height="3"/><rect x="15" y="17" width="3" height="3"/><rect x="21" y="17" width="3" height="3"/><rect x="15" y="23" width="3" height="3"/></g></svg>maritime<small>field notes / play</small></div>
+ <div class="edition mono"><span class="light"></span> A little off course.</div>
+</header>
+<div class="preamble mono"><span><span class="strong">001 / BUOY RUN</span> &nbsp;—&nbsp; A SMALL OCEAN EXPERIMENT</span><span>SIX CAPTAINS. NO FINISH LINE.</span></div>
+<main class="game" id="game" tabindex="0" data-state="intro" aria-label="Buoy Run boat game. Use WASD or arrow keys to sail. Hold space to boost. Press P to pause.">
+ <canvas id="waves" class="waves" aria-hidden="true"></canvas>
+ <canvas id="scene" class="scene" aria-hidden="true"></canvas>
+ <div class="vignette"></div>
+ <div class="watermark mono">MARITIME / BUOY RUN</div>
+ <section class="intro" id="intro" aria-labelledby="game-title">
+  <div class="eyebrow mono"><span class="light"></span> THE OCEAN IS CALLING</div>
+  <h1 id="game-title">Small boat.<br><span>Big ocean.</span></h1>
+  <p>Choose a captain. Chase the horizon.<br>A little further, every time.</p>
+  <div class="crew-label mono">CHOOSE YOUR CAPTAIN</div><div class="crew-grid" id="crew" role="group" aria-label="Choose your captain"></div><div class="launch-form" id="launch-form" role="group" aria-label="Choose a callsign and start sailing">
+   <label class="input-label mono" for="callsign">YOUR CALLSIGN <span style="color:#58665e">/ OPTIONAL</span></label>
+   <div class="callsign-wrap"><span>›</span><input id="callsign" name="callsign" maxlength="16" autocomplete="off" spellcheck="false" placeholder="CAPTAIN" aria-label="Your captain callsign"></div>
+   <button class="primary" type="button" id="start">Cast off <span aria-hidden="true">↗</span></button>
+  </div>
+  <div class="intro-hint mono">A / D TO STEER · W TO SAIL · SPACE TO BOOST</div>
+  <div class="intro-label mono"><span>CHART NO. 001</span><b>THE OPEN WATER</b></div>
+  <div class="intro-bottom mono"><span>NO DOWNLOADS. NO SIGN-UPS. JUST SAIL.</span><span class="coords">37°48′ N &nbsp; 122°28′ W</span></div>
+ </section>
+ <div class="hud" id="hud">
+  <div class="hud-top">
+   <div class="stats">
+    <div><span class="stat-label mono">BUOYS</span><span class="stat-value"><span id="gate-count">00</span><span class="denom"> / ∞</span></span></div>
+    <div><span class="stat-label mono">DISTANCE</span><span class="stat-value" id="timer">0 m</span></div>
+    <div class="hull-stat"><span class="stat-label mono">VOYAGE</span><span class="stat-value hull" id="hull">01</span></div>
+   </div>
+   <div class="hud-actions"><button class="camera-btn mono" id="camera" aria-label="Change camera angle">C · CHASE</button>
+    <button class="icon-btn" id="sound" aria-label="Turn sound on" title="Sound off"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 8h3l4-4v12l-4-4H3zM14 7l4 6M18 7l-4 6"/></svg></button>
+    <button class="icon-btn" id="pause" aria-label="Pause game" title="Pause (P)"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 4v12M13 4v12" stroke-width="2.5"/></svg></button>
+   </div>
+  </div>
+  <aside class="discovery" id="discovery" hidden><span class="mono" id="discovery-kicker">FIELD NOTE</span><b id="discovery-title"></b><p id="discovery-copy"></p><a id="discovery-source" target="_blank" rel="noopener">Read more ↗</a><button id="discovery-close" aria-label="Dismiss discovery">×</button></aside><div class="toast" id="toast" aria-live="polite"><div class="title" id="toast-title"></div><div class="detail mono" id="toast-detail"></div></div>
+  <div class="objective"><div class="target" id="objective">Follow the red buoy ↗</div><div class="secondary mono" id="course-detail">CHART 001 · 3 LIVES · 0 PTS</div></div>
+  <div class="bottom-right"><div class="boost-label mono"><span>BOOST / SPACE</span><span id="boost-percent">100%</span></div><div class="boost-track" role="meter" aria-label="Boost energy" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" id="boost-meter"><div class="boost-fill" id="boost-fill"></div></div><div class="speed mono" id="speed">00 KNOTS</div></div>
+ </div>
+ <div class="touch-ui"><span class="touch-label mono">DRAG LEFT / RIGHT<br>TO STEER</span><button class="touch-boost mono" id="touch-boost" aria-label="Hold to boost">BOOST<br>↗</button></div>
+ <section class="panel" id="pause-panel" hidden aria-labelledby="pause-title"><div class="panel-inner"><span class="badge">DROPPED ANCHOR</span><h2 id="pause-title">Take a breath.</h2><p>The ocean can wait.<br>Your voyage is paused.</p><button class="primary" id="resume">Keep sailing <span aria-hidden="true">↗</span></button><button class="secondary-btn" id="restart-paused">Choose another captain</button></div></section>
+ <section class="panel" id="result-panel" hidden aria-labelledby="result-title"><div class="panel-inner"><span class="badge" id="result-badge">BACK ON DRY LAND</span><h2 id="result-title">Home, at last.</h2><p id="result-copy">Seven buoys down. One very small boat.</p><div class="result-stats"><div><b id="result-score">0</b><span>Points</span></div><div><b id="result-buoys">7/7</b><span>Buoys</span></div><div><b id="result-best">0</b><span>Best</span></div></div><button class="primary" id="play-again">One more voyage <span aria-hidden="true">↗</span></button><button class="secondary-btn" id="share">Share this little boat</button><div class="mini" id="result-note">PERSONAL BEST SAVED ON THIS DEVICE.</div></div></section>
+ <div class="sr-only" id="announcement" role="status" aria-live="polite"></div>
+</main>
+<footer class="helpbar mono"><div class="keys"><div class="keygroup steering-label"><span class="key">WASD</span><span class="key">↑←↓→</span> SAIL</div><div class="keygroup desktop-only"><span class="key">SPACE</span> BOOST</div><div class="keygroup desktop-only"><span class="key">C</span> CAMERA · P PAUSE</div></div><div class="footer-note">DRAWN IN DOTS. MADE FOR DETOURS.<br><a href="__PUBLIC_URL__/embed-test.html">PLAYER CARD TEST ↗</a></div></footer>
+<div class="page-tail mono">BUILT WITH THE MARITIME DITHER KIT &nbsp; / &nbsp; TAKE THE SCENIC ROUTE.</div>
+</div>
+<noscript><p style="padding:30px">This little boat needs JavaScript to sail. Enable JavaScript and reload the page.</p></noscript>
+<script>__SCRIPT__</script>
+</body>
+</html>

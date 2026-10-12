@@ -1,0 +1,9 @@
+cdc5b143de36aa8ba7c6190e4f09f39df921428bd51f44139faf55e6d27d5c14  game-upload/maritime-buoy-run/src/race/continuous-fleet.js
+7b97f59df5774ceef8fabe04f5580b546adfd45a64a8779e8d3eedd550fd5995  game-upload/maritime-buoy-run/src/race/captain-models.js
+c387b707ff1d33aaa0c30f508495707420c967b670c50120f19ad37230bd5b1f  game-upload/maritime-buoy-run/src/race/captain-models-hero.js
+7b35788d0333e44ec116a7b59a1f9661d7de5b665f15e309a27014dd74362e39  game-upload/maritime-buoy-run/src/race/race.js
+0a357b2d44f9ddab80d79bc951e9689d499be9363896839392c552a65159a6fa  game-upload/maritime-buoy-run/src/race/world.js
+7477cccf520037f9404a4c3f7e5039e645287d5f0c44eaab51b1ef5efd7697f4  game-upload/maritime-buoy-run/src/race/river-renderer.js
+7b01bbef64cab102b64f742bd9044e05971b0d1e14b77e7aaf0deb020112a931  game-upload/maritime-buoy-run/src/race/capture.js
+c5d901ad45773061e52583977cbb2f4462420deb795f9e8828511a2280fe1d5b  game-upload/maritime-buoy-run/src/race/vendor/tidebreaker/camera.js
+7db712c40d8e18eb4b0263120958c4a6615a59e50ffdc1bfe88efd6926b29ce2  game-upload/maritime-buoy-run/public/boat-continuous.json

@@ -1,0 +1,20 @@
+import fs from 'node:fs';import vm from 'node:vm';import assert from 'node:assert/strict';import path from 'node:path';import os from 'node:os';import {pathToFileURL} from 'node:url';
+const root=path.resolve(process.env.RIVALS_PROJECT_ROOT||'/workspace/scratch/9ef7b9d6445e/game-upload/maritime-buoy-run'),dir=fs.mkdtempSync(path.join(os.tmpdir(),'rivals-qa-'));
+const Three=await import(pathToFileURL(root+'/public/three.module.js').href);
+fs.writeFileSync(dir+'/package.json','{"type":"module"}');for(const file of ['camera.js','waves.js','util.js'])fs.writeFileSync(dir+'/'+file,fs.readFileSync(root+'/src/race/vendor/tidebreaker/'+file,'utf8').replaceAll('../../three.module.js',pathToFileURL(root+'/public/three.module.js').href));
+const {CameraRig}=await import(pathToFileURL(dir+'/camera.js').href),{sea}=await import(pathToFileURL(dir+'/waves.js').href);
+const {riverWidth,laneLimit}=await import(pathToFileURL(root+'/src/race/world.js').href);
+const source=fs.readFileSync(root+'/src/race/race.js','utf8').replace(/^import[^\n]*\n/gm,''),html=fs.readFileSync(root+'/src/race/index.html','utf8');
+function harness(options={}){const els=new Map(),all=[],windowEvents={},documentEvents={},storage={};
+const map=new Proxy({}, {get:(o,k)=>o[k]??(()=>{}),set:(o,k,v)=>(o[k]=v,true)});
+function el(tag='DIV',id=''){const e={tagName:tag.toUpperCase(),id,children:[],dataset:{},style:{},hidden:false,disabled:false,clientWidth:1280,clientHeight:720,value:'',textContent:'',innerHTML:'',classList:{toggle(){}},append(x){this.children.push(x)},replaceChildren(){this.children=[]},getContext(){return map},setAttribute(){},focus(){},matches(q){return q.split(',').includes(this.tagName.toLowerCase())},setPointerCapture(){}};Object.defineProperty(e,'innerHTML',{get(){return this._html||''},set(v){this._html=v;for(const m of v.matchAll(/<canvas[^>]*data-portrait="([^"]+)"[^>]*>/g)){const child=el('canvas');child.dataset.portrait=m[1];this.children.push(child)}}});all.push(e);return e;}
+for(const m of html.matchAll(/<(\w+)[^>]*\bid="([^"]+)"[^>]*>/g)){const node=el(m[1],m[2]);node.disabled=/\sdisabled(?:\s|>)/.test(m[0]);els.set(m[2],node);}const body=el('body');
+const document={body,hidden:false,getElementById:id=>els.get(id),createElement:el,querySelectorAll:q=>q.includes('data-captain')?all.filter(e=>e.dataset.captain!==undefined):q.includes('data-portrait')?all.filter(e=>e.dataset.portrait!==undefined):[],addEventListener(k,fn){documentEvents[k]=fn}};
+class RiverRenderer{constructor(canvas){this.canvas=canvas;this.resetCount=0;this.drawCount=0}reset(){this.resetCount++}resize(w,h){this.width=w;this.height=h}draw(s){this.drawCount++;this.state=s;}}
+class Image{set src(s){this._src=s;this.complete=true;this.naturalWidth=2100;Promise.resolve().then(()=>this.onload?.())}get src(){return this._src}}
+const assetsReady=options.assetsReady??Promise.resolve();
+const context=vm.createContext({console,Image,assetsReady,laneLimit,T:Three,CameraRig,sea,RiverRenderer,document,window:{addEventListener(k,fn){windowEvents[k]=fn}},localStorage:{getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v},performance:{now:()=>0},ResizeObserver:class{observe(){}},requestAnimationFrame(){}});
+vm.runInContext(source+'\nthis.qa={start,pause,spawn,physics,frame,hud,finish,track,pose,follow,cameraChange,cameraBoat,raceOrder,formatTime,roster,get state(){return {phase,countdown,player,racers,keys,touch,raceTime,length,laps,collisionTime,respawnHeld,calloutUntil,camera,rig,renderer,clock,view}},set(v){if(v.phase!==undefined)phase=v.phase;if(v.raceTime!==undefined)raceTime=v.raceTime;if(v.collisionTime!==undefined)collisionTime=v.collisionTime;if(v.respawnHeld!==undefined)respawnHeld=v.respawnHeld;if(v.last!==undefined)last=v.last;}}',context);return {q:context.qa,els,all,windowEvents,documentEvents,storage};}
+function finite(q){const s=q.state,c=s.camera;assert([...c.position.toArray(),...c.quaternion.toArray(),c.fov,...s.racers.flatMap(r=>[r.d,r.lane,r.speed,r.steer])].every(Number.isFinite));}
+
+export {harness,finite,Three,root,CameraRig,riverWidth,laneLimit};

@@ -1,0 +1,66 @@
+{
+  "source": "/workspace/scratch/9ef7b9d6445e/game-upload/maritime-buoy-run/assets/source/sunfish-07-hydroplane.glb",
+  "output": "/workspace/shared/boat-runtime/boat-mesh.json",
+  "meshNodes": 66,
+  "sourcePrimitives": 71,
+  "runtimeParts": 12,
+  "vertices": 7837,
+  "triangles": 5292,
+  "boundsMin": [
+    -1.496999979019165,
+    -0.2199999988079071,
+    -3.4700000286102295
+  ],
+  "boundsMax": [
+    1.496999979019165,
+    0.8899999856948853,
+    3.299999952316284
+  ],
+  "boundsSize": [
+    2.99399995803833,
+    1.1099999845027924,
+    6.769999980926514
+  ],
+  "anchors": {
+    "ANCHOR_bow": [
+      0.0,
+      0.47999998927116394,
+      -3.4700000286102295
+    ],
+    "ANCHOR_cockpitFront": [
+      0.0,
+      0.7300000190734863,
+      -0.699999988079071
+    ],
+    "ANCHOR_seat": [
+      0.0,
+      0.7599999904632568,
+      0.44999998807907104
+    ],
+    "ANCHOR_stern": [
+      0.0,
+      0.05999999865889549,
+      3.1700000762939453
+    ],
+    "ANCHOR_sternLeft": [
+      -0.8600000143051147,
+      0.05999999865889549,
+      3.2200000286102295
+    ],
+    "ANCHOR_sternRight": [
+      0.8600000143051147,
+      0.05999999865889549,
+      3.2200000286102295
+    ],
+    "ANCHOR_waterline": [
+      0.0,
+      0.0,
+      0.5
+    ]
+  },
+  "maxNormalLengthError": 2.220446049250313e-16,
+  "bytes": 939408,
+  "coordinateSystem": "glTF: -Z forward, +Y up; no axis conversion",
+  "sourceCameras": 0,
+  "sourceLights": 0
+}

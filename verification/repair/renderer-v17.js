@@ -1,0 +1,98 @@
+/* River renderer: shared world-space projection, authored assets, textured terrain.
+ * Camera/wave utilities are adapted from MIT Tidebreaker; see vendor license. */
+import * as T from './three.module.js';
+const TAU=Math.PI*2,clamp=T.MathUtils.clamp;
+const noise=(x,y)=>{const n=Math.sin(x*127.1+y*311.7)*43758.5453;return n-Math.floor(n)};
+function smoothNoise(x,y){const i=Math.floor(x),j=Math.floor(y);let a=x-i,b=y-j;a=a*a*(3-2*a);b=b*b*(3-2*b);return T.MathUtils.lerp(T.MathUtils.lerp(noise(i,j),noise(i+1,j),a),T.MathUtils.lerp(noise(i,j+1),noise(i+1,j+1),a),b)}
+function fbm(x,y){return smoothNoise(x,y)*.55+smoothNoise(x*2.13,y*2.13)*.27+smoothNoise(x*4.31,y*4.31)*.13+smoothNoise(x*8.7,y*8.7)*.05}
+function texture(kind){const c=document.createElement('canvas');c.width=c.height=256;const q=c.getContext('2d'),im=q.createImageData(256,256);for(let y=0;y<256;y++)for(let x=0;x<256;x++){const k=(y*256+x)*4,n=fbm(x*.055,y*.055),fine=noise(x,y),ridge=Math.abs(Math.sin(y*.05+fbm(x*.03,y*.02)*8));let col;
+ if(kind==='rock'){const crack=Math.pow(Math.abs(Math.sin(x*.049+fbm(x*.014,y*.04)*11)),10);col=[75+n*84-crack*31+fine*7,66+n*59-crack*27+fine*6,51+n*42-crack*20]}
+ else if(kind==='grass'){const shade=n*.68+fine*.32;col=[35+shade*70,73+shade*101,15+shade*25]}
+ else if(kind==='sand')col=[135+n*67+fine*8,121+n*55,81+n*45];
+ else {const crest=Math.pow(clamp(ridge*.65+n*.6-.25,0,1),4);col=[4+crest*79,76+n*55+crest*100,158+n*38+crest*66]}
+ im.data[k]=col[0];im.data[k+1]=col[1];im.data[k+2]=col[2];im.data[k+3]=255;}q.putImageData(im,0,0);return c}
+const textures={rock:texture('rock'),grass:texture('grass'),sand:texture('sand'),water:texture('water')};
+const mountainNoise=Array.from({length:3},(_,layer)=>Float32Array.from({length:2049},(_,i)=>fbm(i/64,layer*7)));
+function mountainAt(x,layer){const f=clamp(x*64,0,2047),i=Math.floor(f);return T.MathUtils.lerp(mountainNoise[layer][i],mountainNoise[layer][i+1],f-i);}
+
+const load=src=>{const im=new Image();im.src=src;return im},crew=load('characters-rear.webp'),vegetation=load('vegetation.webp'),boatA=load('boat-player-atlas.webp'),boatB=load('boat-rival-atlas.webp');
+let boatMeta=null,treeMeta=null;
+const imageReady=im=>new Promise((resolve,reject)=>{if(im.complete&&im.naturalWidth)return resolve();im.addEventListener('load',resolve,{once:true});im.addEventListener('error',()=>reject(Error('An image could not load. Reload to try again.')),{once:true});});
+export const assetsReady=Promise.all([...[crew,vegetation,boatA,boatB].map(imageReady),fetch('boat-atlas.json').then(r=>{if(!r.ok)throw Error('Boat data unavailable');return r.json()}).then(m=>boatMeta=m),fetch('vegetation.json').then(r=>{if(!r.ok)throw Error('Scenery data unavailable');return r.json()}).then(m=>treeMeta=m)]);
+const crewCrops={dot:[28,260,366,417],muse:[408,165,434,511],grok:[857,359,311,316],openclaw:[1174,185,467,499],fofo:[1643,278,427,402]};
+const matrix=new T.Matrix4(),temp=new T.Vector3();
+function fitImage(q,im,crop,x,bottom,w,h){if(!im.complete||!im.naturalWidth)return;const [sx,sy,sw,sh]=crop,k=Math.min(w/sw,h/sh);q.drawImage(im,sx,sy,sw,sh,x-sw*k/2,bottom-sh*k,sw*k,sh*k)}
+export class RiverRenderer{
+ constructor(canvas){this.canvas=canvas;this.q=canvas.getContext('2d');this.patterns=new Map(Object.values(textures).map(im=>[im,this.q.createPattern(im,'repeat')]));this.width=800;this.height=600;this.frame=0;this.wakes=[];this.lastWake=0;this.currentTime=0;this.terrainCache=new Map();this.pixelBudget=600000;this.drawAverage=0;this.lastQualityChange=0;this.canvas.dataset.renderer='reference-2.5d';}
+ resize(w,h){this.width=w;this.height=h;const ratio=Math.min(1,Math.sqrt(this.pixelBudget/(w*h)));this.canvas.dataset.renderScale=ratio.toFixed(3);const bw=Math.round(w*ratio),bh=Math.round(h*ratio);if(this.canvas.width!==bw)this.canvas.width=bw;if(this.canvas.height!==bh)this.canvas.height=bh;this.q.setTransform(ratio,0,0,ratio,0,0);}
+ reset(){this.wakes=[];this.lastWake=0;}
+ draw(state){if(this.pendingResize){this.pendingResize=false;this.resize(this.width,this.height);}const drawStarted=performance.now();const {camera,track,length,player,racers,clock,phase,view}=state,q=this.q,W=this.width,H=this.height;this.frame++;this.currentTime=clock;camera.updateMatrixWorld();matrix.multiplyMatrices(camera.projectionMatrix,camera.matrixWorldInverse);
+ const project=p=>{temp.copy(p).applyMatrix4(matrix);if(temp.z< -1||temp.z>1||!Number.isFinite(temp.x))return null;return {x:(temp.x*.5+.5)*W,y:(-.5*temp.y+.5)*H,z:temp.z}};
+ const vertex=(d,side,h)=>{const t=track(d);return t.p.addScaledVector(t.normal,side).setY(h)};
+ const clipNear=(arr,uv=arr.map(()=>[0,0]))=>{const items=arr.map((p,i)=>({p,uv:uv[i],depth:-(camera.matrixWorldInverse.elements[2]*p.x+camera.matrixWorldInverse.elements[6]*p.y+camera.matrixWorldInverse.elements[10]*p.z+camera.matrixWorldInverse.elements[14])})),out=[];for(let i=0;i<items.length;i++){const a=items[i],b=items[(i+1)%items.length],ain=a.depth>=.21,bin=b.depth>=.21;if(ain)out.push(a);if(ain!==bin){const t=(.21-a.depth)/(b.depth-a.depth);out.push({p:a.p.clone().lerp(b.p,t),uv:[T.MathUtils.lerp(a.uv[0],b.uv[0],t),T.MathUtils.lerp(a.uv[1],b.uv[1],t)]});}}return out;};
+ const polygon=(arr,color,alpha=1)=>{let p=arr.map(project);if(p.some(v=>!v))p=clipNear(arr).map(v=>project(v.p));if(p.length<3||p.some(v=>!v)||p.every(v=>v.x<0)||p.every(v=>v.x>W)||p.every(v=>v.y<0)||p.every(v=>v.y>H))return;q.globalAlpha=alpha;q.fillStyle=color;q.beginPath();p.forEach((v,i)=>i?q.lineTo(v.x,v.y):q.moveTo(v.x,v.y));q.closePath();q.fill();q.globalAlpha=1;};
+ const triangle=(im,p0,p1,p2,uv0,uv1,uv2)=>{if(!p0||!p1||!p2)return;if(Math.max(p0.x,p1.x,p2.x)<0||Math.min(p0.x,p1.x,p2.x)>W||Math.max(p0.y,p1.y,p2.y)<0||Math.min(p0.y,p1.y,p2.y)>H||Math.abs((p1.x-p0.x)*(p2.y-p0.y)-(p1.y-p0.y)*(p2.x-p0.x))<1)return;const [u0,v0]=uv0,[u1,v1]=uv1,[u2,v2]=uv2,den=u0*(v1-v2)+u1*(v2-v0)+u2*(v0-v1);if(Math.abs(den)<.001)return;const a=(p0.x*(v1-v2)+p1.x*(v2-v0)+p2.x*(v0-v1))/den,b=(p0.y*(v1-v2)+p1.y*(v2-v0)+p2.y*(v0-v1))/den,c=(p0.x*(u2-u1)+p1.x*(u0-u2)+p2.x*(u1-u0))/den,d=(p0.y*(u2-u1)+p1.y*(u0-u2)+p2.y*(u1-u0))/den,e=(p0.x*(u1*v2-u2*v1)+p1.x*(u2*v0-u0*v2)+p2.x*(u0*v1-u1*v0))/den,f=(p0.y*(u1*v2-u2*v1)+p1.y*(u2*v0-u0*v2)+p2.y*(u0*v1-u1*v0))/den;const pattern=this.patterns.get(im);if(!pattern?.setTransform)q.save();q.beginPath();const cx=(p0.x+p1.x+p2.x)/3,cy=(p0.y+p1.y+p2.y)/3;[p0,p1,p2].forEach((p,i)=>{const dx=p.x-cx,dy=p.y-cy,l=Math.hypot(dx,dy)||1,x=p.x+dx/l*.65,y=p.y+dy/l*.65;i?q.lineTo(x,y):q.moveTo(x,y)});q.closePath();if(pattern?.setTransform){pattern.setTransform({a,b,c,d,e,f});q.fillStyle=pattern;q.fill();}else{q.clip();q.transform(a,b,c,d,e,f);q.drawImage(im,0,0);q.restore();}};
+ const quad=(im,arr)=>{let p=arr.map(project);if(p.every(Boolean)){triangle(im,p[0],p[1],p[2],[0,256],[256,256],[256,0]);triangle(im,p[0],p[2],p[3],[0,256],[256,0],[0,0]);return;}const verts=clipNear(arr,[[0,256],[256,256],[256,0],[0,0]]);p=verts.map(v=>project(v.p));if(p.length<3||p.some(v=>!v))return;for(let i=1;i<p.length-1;i++)triangle(im,p[0],p[i],p[i+1],verts[0].uv,verts[i].uv,verts[i+1].uv);};
+ // Deep cobalt sky and a distant, layered mountain canopy.
+ const sky=q.createLinearGradient(0,0,0,H*.6);sky.addColorStop(0,'#0750de');sky.addColorStop(.7,'#20a4ed');sky.addColorStop(1,'#b4edfa');q.fillStyle=sky;q.fillRect(0,0,W,H);
+ const heading=Math.atan2(track(player.d).dir.x,track(player.d).dir.z);
+ for(let layer=0;layer<3;layer++){q.fillStyle=['#508b99','#356f67','#2d6240'][layer];q.beginPath();q.moveTo(0,H*.58);for(let x=-10;x<=W+10;x+=10){const n=mountainAt(x/W*4+heading*1.5+16,layer);q.lineTo(x,H*(.35+layer*.045)-n*H*.18)}q.lineTo(W,H*.65);q.fill();}
+ q.fillStyle='#076dc2';q.fillRect(0,H*.55,W,H*.45);
+ const start=Math.floor((player.d-32)/9)*9,drawables=[];const cuts=[0,1,2,3,4,5,6,7,8,9,10,11,13,15,17,19,21,23,25,27,29,31,35,39,43,47,51,55,59,63,67,71,75,79,83,87];
+ // River and land share one projection, sorted by course distance.
+ const riverWidth=d=>32+4*Math.sin(d*.004)+2*Math.sin(d*.009);
+ const bankShape=(d,side)=>{const n=fbm(d*.003,side*4),near=riverWidth(d),shore=near+5+n*9,upper=shore+11+n*14,cliff=8+29*n*n+Math.max(0,Math.sin(d*.003+side)-.4)*23+Math.sin(d*.027)*2;return {near,shore,upper,cliff,far:upper+55};};
+ const drawTree=o=>{const p=project(o.p),top=project(o.p.clone().add(new T.Vector3(0,o.size,0)));if(!p||!top||!treeMeta||!vegetation.complete||!vegetation.naturalWidth)return;const sprite=treeMeta.sprites[o.variant],crop=sprite.crop_xywh,h=Math.abs(p.y-top.y),w=h*crop[2]/crop[3],anchor=sprite.base_anchor_crop_normalized;if(h<2||p.x+w<0||p.x-w>W||p.y<0||p.y-h>H)return;q.drawImage(vegetation,...crop,p.x-w*anchor[0],p.y-h*anchor[1],w,h);};
+ // Cache immutable world geometry. Only projection and visible drawing happen per frame.
+ for(let k=cuts.length-2;k>=0;k--){const i=cuts[k],d=start+i*9,d2=start+cuts[k+1]*9,strips=i<12?4:i<29?2:1,rows=i<12?2:1,key=d+':'+(d2-d)+':'+strips;let chunk=this.terrainCache.get(key);
+  if(!chunk){const t=track(d),t2=track(d2),local=(p,n,x,y)=>p.clone().addScaledVector(n,x).setY(y),wp=(x,y)=>local(t.p,t.normal,x,y),wn=(x,y)=>local(t2.p,t2.normal,x,y),width=riverWidth(d),width2=riverWidth(d2);chunk=[];const add=(im,p)=>chunk.push({im,p});
+   for(let strip=0;strip<strips;strip++){const f0=strip/strips*2-1,f1=(strip+1)/strips*2-1;add(textures.water,[wp(f0*width,0),wp(f1*width,0),wn(f1*width2,0),wn(f0*width2,0)]);}
+   for(const side of[-1,1]){const a=bankShape(d,side),b=bankShape(d2,side);add(textures.sand,[wp(side*a.near,-.1),wn(side*b.near,-.1),wn(side*b.shore,2),wp(side*a.shore,2)]);
+    for(let j=0;j<rows;j++){const f0=j/rows,f1=(j+1)/rows;add(textures.rock,[wp(side*T.MathUtils.lerp(a.shore,a.upper,f0),T.MathUtils.lerp(2,a.cliff,f0)),wn(side*T.MathUtils.lerp(b.shore,b.upper,f0),T.MathUtils.lerp(2,b.cliff,f0)),wn(side*T.MathUtils.lerp(b.shore,b.upper,f1),T.MathUtils.lerp(2,b.cliff,f1)),wp(side*T.MathUtils.lerp(a.shore,a.upper,f1),T.MathUtils.lerp(2,a.cliff,f1))]);}
+    add(textures.grass,[wp(side*a.upper,a.cliff),wn(side*b.upper,b.cliff),wn(side*b.far,b.cliff+2),wp(side*a.far,a.cliff+2)]);
+    for(let td=Math.ceil(d/18)*18;td<d2;td+=18){const shape=bankShape(td,side),tt=track(td);for(let j=1;j>=0;j--)chunk.push({tree:true,p:tt.p.clone().addScaledVector(tt.normal,side*(shape.upper+4+j*12)).setY(shape.cliff+1),size:15+noise(td,j+side)*12,variant:Math.abs(Math.floor(td/9+j+side))%5});}
+   }
+   if(this.terrainCache.size>=1800)this.terrainCache.delete(this.terrainCache.keys().next().value);this.terrainCache.set(key,chunk);
+  }
+  for(const item of chunk){if(item.tree)drawTree(item);else quad(item.im,item.p);}
+ }
+ // Broad water highlights anchored to world coordinates; never a scrolling screen overlay.
+ for(let i=24;i>=0;i--){const d=Math.floor(player.d/7)*7+i*7,t=track(d);for(let j=-2;j<=2;j++){const x=j*8+Math.sin(d*.07+j)*2,y=Math.sin(clock*1.2+d*.05)*.12;const p=t.p.clone().addScaledVector(t.normal,x).setY(y),n=t.normal;const w=1.4+noise(i,j)*2.1,span=3+noise(j,i)*5;const a=p.clone().addScaledVector(n,-w),b=p.clone().addScaledVector(n,w).addScaledVector(t.dir,1),c=b.clone().addScaledVector(t.dir,span),e=a.clone().addScaledVector(t.dir,span*.7);polygon([a,b,c,e],'#63d7f5',.10+noise(i,j)*.12)}}
+ // Persistent wake particles adapted from Tidebreaker's world-space sample/lifetime approach.
+ if(phase==='race'&&clock-this.lastWake>.065){this.lastWake=clock;for(const r of racers)if(r.speed>2){const t=track(r.d);for(const side of[-1,1])this.wakes.push({p:vertex(r.d-5,r.lane+side*.8,.12),n:t.normal.clone(),dir:t.dir.clone(),born:clock,side,strength:Math.min(1,r.speed/24),seed:noise(r.d,side),kind:'wake'});}}
+ this.wakes=this.wakes.filter(p=>clock-p.born<1.05).slice(-80);
+ for(const w of this.wakes){const age=(clock-w.born)/1.05,size=.65+age*2.6,p=w.p.clone().addScaledVector(w.n,w.side*age*2.4);const points=[];for(let k=0;k<9;k++){const a=k/9*TAU,spread=.65+noise(k,w.seed)*.55;points.push(p.clone().addScaledVector(w.n,Math.cos(a)*size*spread).addScaledVector(w.dir,Math.sin(a)*size*spread*1.5));}polygon(points,age<.32?'#e4ffff':'#a4f3ff',(1-age)*w.strength*.23);for(let j=0;j<2;j++){const dot=project(p.clone().addScaledVector(w.n,(noise(j,w.seed)-.5)*size*2).addScaledVector(w.dir,(noise(w.seed,j)-.5)*size*2));if(dot){const up=project(p.clone().add(new T.Vector3(0,.14,0)));if(up){const radius=Math.max(.35,Math.abs(up.y-dot.y)*.35);q.globalAlpha=(1-age)*.40;q.fillStyle='#e9ffff';q.beginPath();q.ellipse(dot.x,dot.y,radius*1.4,radius*.6,0,0,TAU);q.fill();q.globalAlpha=1;}}}}
+ for(let k=0;k<16;k++){let d=k/16*length+Math.floor(player.d/length)*length;if(d<player.d-30)d+=length;if(d<player.d+650)for(const side of[-1,1])drawables.push({kind:'buoy',d,p:vertex(d,side*28,0)});}
+ for(const [fraction,kind] of [[0,'gantry'],[.36,'arch'],[.58,'banner'],[.79,'waterfall']]){let d=fraction*length+Math.floor(player.d/length)*length;if(d<player.d-50)d+=length;if(d<player.d+650)drawables.push({kind,d,p:vertex(d,0,0)});}
+ for(const fraction of[.15,.28,.52,.7,.86]){let d=fraction*length+Math.floor(player.d/length)*length;if(d<player.d-20)d+=length;if(d<player.d+400){const a=track(d).dir,b=track(d+15).dir,turn=a.x*b.z-a.z*b.x;drawables.push({kind:'chevron',d,p:vertex(d,turn>0?29:-29,4),side:turn>0?1:-1});}}
+ for(const r of racers)if(r!==player||view!==1)drawables.push({kind:'boat',d:r.d,p:vertex(r.d,r.lane,.4),r});
+ // Sorting by actual camera depth keeps transverse river bends and bank props coherent.
+ drawables.sort((a,b)=>b.p.distanceToSquared(camera.position)-a.p.distanceToSquared(camera.position));
+ for(const o of drawables){const p=project(o.p);if(!p)continue;const up=project(o.p.clone().add(new T.Vector3(0,1,0)));if(!up)continue;const unit=Math.abs(up.y-p.y);if(unit<.03)continue;
+  if(o.kind==='tree'&&treeMeta&&vegetation.complete&&vegetation.naturalWidth){const sprite=treeMeta.sprites[o.variant],crop=sprite.crop_xywh,h=unit*o.size,w=h*crop[2]/crop[3],anchor=sprite.base_anchor_crop_normalized;if(p.x+w<0||p.x-w>W)continue;q.drawImage(vegetation,...crop,p.x-w*anchor[0],p.y-h*anchor[1],w,h);}
+  else if(o.kind==='boat'){
+   const r=o.r,t=track(r.d),towards=o.p.clone().sub(camera.position).normalize(),angle=Math.atan2(t.dir.x,t.dir.z)-Math.atan2(towards.x,towards.z)+r.steer*.13;
+   let degrees=-T.MathUtils.radToDeg(Math.atan2(Math.sin(angle),Math.cos(angle)));degrees=clamp(degrees,-40,40);const index=Math.round((degrees+40)/10),im=r===player?boatA:boatB;
+   const bow=project(vertex(r.d+5.5,r.lane,.5)),stern=project(vertex(r.d-5.7,r.lane,.25));
+   const frame=boatMeta?.frames?.[index];
+   if(im.complete&&im.naturalWidth&&frame){const crop=frame.crop,anchor=frame.anchor||[.5,.5],w=unit*7.7,h=clamp(bow&&stern&&frame.bow&&frame.stern?Math.abs(stern.y-bow.y)/Math.max(.2,frame.stern[1]-frame.bow[1]):w*crop[3]/crop[2],w*.4,H*1.4);const x=p.x-w*anchor[0],y=bow&&frame.bow?bow.y-h*frame.bow[1]:p.y-h*anchor[1];q.save();q.translate(p.x,p.y);q.rotate(-r.steer*.025);q.drawImage(im,...crop,x-p.x,y-p.y,w,h);const seat=frame.seat||[.5,.6],cx=x+w*seat[0]-p.x,cy=y+h*seat[1]-p.y;
+    // Captains are seated in the cockpit; only their upper body clears the deck.
+    const ch=w*.11,cw=ch*.88,id=r.c.id;q.save();q.beginPath();q.rect(cx-cw,cy-ch,cw*2,ch);q.clip();if(crewCrops[id])fitImage(q,crew,crewCrops[id],cx,cy+ch*.19,cw,ch*1.19);else{q.strokeStyle='#171d23';q.lineWidth=Math.max(1.2,ch*.055);q.beginPath();q.arc(cx,cy-ch*.75,ch*.14,0,TAU);q.moveTo(cx,cy-ch*.60);q.lineTo(cx,cy);q.moveTo(cx-ch*.22,cy-ch*.2);q.lineTo(cx,cy-ch*.43);q.lineTo(cx+ch*.22,cy-ch*.2);q.stroke()}q.restore();q.restore();
+   }else{const local=(x,z,y=.3)=>vertex(r.d+z,r.lane+x,y);polygon([local(-2,-5),local(2,-5),local(2.7,0),local(0,6),local(-2.7,0)],r===player?'#efd623':'#7652c8');polygon([local(-.4,-3,.5),local(.4,-3,.5),local(.4,3,.5),local(0,5,.5),local(-.4,3,.5)],'#a4e324');}
+   if(r!==player){q.fillStyle='#ffffff';q.font=`bold ${clamp(unit*1.5,9,15)}px Arial`;q.textAlign='center';q.shadowColor='#002040';q.shadowBlur=4;q.fillText(r.c.name,p.x,bow?bow.y-15:p.y-unit*2);q.shadowBlur=0;}
+  }
+  else if(o.kind==='buoy'){q.fillStyle='#ed5820';q.beginPath();q.moveTo(p.x-unit,p.y);q.lineTo(p.x-unit*.65,p.y-unit*2.3);q.lineTo(p.x+unit*.65,p.y-unit*2.3);q.lineTo(p.x+unit,p.y);q.fill();q.fillStyle='#f8f7d9';q.fillRect(p.x-unit*.15,p.y-unit*3.8,unit*.3,unit*2);}
+  else if(['gantry','banner','arch','waterfall','chevron'].includes(o.kind)){
+   const local=(x,y,z=0)=>vertex(o.d+z,x,y);
+   if(o.kind==='gantry'||o.kind==='banner'){for(const side of[-1,1])quad(textures.rock,[local(side*29-1,0),local(side*29+1,0),local(side*29+1,22),local(side*29-1,22)]);polygon([local(-30,18),local(30,18),local(30,23),local(-30,23)],'#f2d725');if(o.kind==='gantry')for(let j=-10;j<10;j++)for(let row=0;row<2;row++)if((j+row)%2===0)polygon([local(j*3,18+row*2.5),local(j*3+3,18+row*2.5),local(j*3+3,20.5+row*2.5),local(j*3,20.5+row*2.5)],'#182a25');else{}if(o.kind==='banner'){const label=project(local(0,19.5));if(label){q.fillStyle='#263822';q.font=`italic bold ${unit*3}px Arial`;q.textAlign='center';q.fillText('MARITIME',label.x,label.y)}}}
+   if(o.kind==='arch'){for(let j=0;j<10;j++){const a=j/10*Math.PI,b=(j+1)/10*Math.PI,inner=a=>[Math.cos(a)*(31+Math.sin(a*7)*1.6),Math.sin(a)*25+Math.sin(a*5)*2.2],outer=a=>[Math.cos(a)*(52+Math.sin(a*5)*3),Math.sin(a)*44+5+Math.sin(a*7)*2.8],ia=inner(a),ib=inner(b),oa=outer(a),ob=outer(b);quad(textures.rock,[local(...ia),local(...ib),local(...ib,24),local(...ia,24)]);polygon([local(...ia),local(...ib),local(...ib,24),local(...ia,24)],'#0e191d',.58);const corners=[local(...ia),local(...ib),local(...ob),local(...oa)];quad(textures.rock,corners);polygon(corners,'#172217',.19)}polygon([local(-31,.3,-5),local(31,.3,-5),local(31,.3,24),local(-31,.3,24)],'#052341',.40);}
+   if(o.kind==='waterfall'){quad(textures.rock,[local(-49,0),local(-31,0),local(-36,55),local(-58,55)]);for(let j=0;j<18;j++){const x=-44+j*.58,alpha=.3+.4*noise(j,Math.floor(clock*9));polygon([local(x,1,-.5),local(x+.55,1,-.5),local(x+.55,50,-.5),local(x,50,-.5)],j%3?'#c4f5ff':'#f2ffff',alpha)}for(let j=0;j<10;j++){const pp=project(local(-37+Math.sin(j*3.3+clock)*5,Math.abs(Math.sin(j+clock*2))*3,-2));if(pp){q.globalAlpha=.2;q.fillStyle='#e2ffff';q.beginPath();q.ellipse(pp.x,pp.y,unit*5,unit*1.5,0,0,TAU);q.fill();q.globalAlpha=1;}}}
+   if(o.kind==='chevron'){const w=unit*15,h=unit*7;q.fillStyle='#f7ecd2';q.fillRect(p.x-w/2,p.y-h,w,h);q.fillStyle='#e33720';for(let j=0;j<3;j++){const x=p.x-w/2+(j+.5)*w/3,dir=o.side;q.beginPath();q.moveTo(x-dir*w*.10,p.y-h*.9);q.lineTo(x+dir*w*.06,p.y-h*.5);q.lineTo(x-dir*w*.10,p.y-h*.1);q.lineTo(x-dir*w*.03,p.y-h*.1);q.lineTo(x+dir*w*.14,p.y-h*.5);q.lineTo(x-dir*w*.03,p.y-h*.9);q.fill();}}
+  }
+ }
+ if(view===1&&boatA.complete&&boatA.naturalWidth){q.drawImage(boatA,1009,587,286,135,W*.25,H*.75,W*.5,H*.30);}
+ const archDistance=((player.d/length-.36)%1+1)%1*length;if(archDistance<27){q.fillStyle='#001625';q.globalAlpha=Math.sin(archDistance/27*Math.PI)*.25;q.fillRect(0,0,W,H);q.globalAlpha=1;}
+ const cost=performance.now()-drawStarted;this.drawAverage=this.drawAverage?this.drawAverage*.9+cost*.1:cost;if(phase==='race'&&this.frame-this.lastQualityChange>45&&this.drawAverage>21&&this.pixelBudget>250000){this.pixelBudget=Math.max(250000,Math.round(this.pixelBudget*.72));this.lastQualityChange=this.frame;this.pendingResize=true;}else if(phase==='race'&&this.frame-this.lastQualityChange>240&&this.drawAverage<10&&this.pixelBudget<600000){this.pixelBudget=Math.min(600000,Math.round(this.pixelBudget*1.15));this.lastQualityChange=this.frame;this.pendingResize=true;}
+ this.canvas.dataset.drawMs=this.drawAverage.toFixed(1);
+ }
+}

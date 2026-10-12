@@ -1,0 +1,15 @@
+/* Colours for DitherShape (read via getComputedStyle on the canvas). */
+:root {
+  --dither-dot: rgba(255, 255, 255, 0.92);
+  --dither-dot-radius: 0.55px;
+  --dither-ground: #0a0b0e;
+}
+[data-theme="light"] {
+  --dither-dot: rgba(11, 18, 32, 0.78);
+  --dither-dot-radius: 0.62px;
+  --dither-ground: #f4f5f7;
+}
+/* A baked dot sheet (from dither_tile.py) is white on black; invert it for light mode instead of re-rendering. */
+[data-theme="light"] .dither-sheet {
+  filter: invert(1);
+}

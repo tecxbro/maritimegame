@@ -1,0 +1,153 @@
+{
+  "suite": "Buoy Run browser acceptance",
+  "passed": 28,
+  "total": 28,
+  "tests": [
+    {
+      "test": "Intro renders and remains idle",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Text input is real and does not start/move game",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Start button uses typed callsign without submitting a form",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Actual WASD controls move and collect first buoy",
+      "passed": true,
+      "detail": "{'gate': 1, 'score': 250}"
+    },
+    {
+      "test": "Boost increases speed and spends energy",
+      "passed": true,
+      "detail": "{'energy': 76.34890000000013, 'speed': 305.6876407379044}"
+    },
+    {
+      "test": "Boost recharges after release",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Pause freezes game time",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Resume continues without stuck keys",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Rock collision removes one hull point",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Collision immunity prevents instant repeat death",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Timeout shows loss and restart",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Restart resets all game state",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Zero hull ends run",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "All seven checkpoints complete and score",
+      "passed": true,
+      "detail": "{'score': 3090, 'time': 89.0109000000001}"
+    },
+    {
+      "test": "Sharing handles a non-public local origin safely",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Pointer steering moves boat and releases",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Losing focus auto-pauses",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "No runtime JavaScript errors in desktop run",
+      "passed": true,
+      "detail": "[]"
+    },
+    {
+      "test": "Embedded layout fills viewport without scroll",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "390px mobile has no horizontal scroll",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Mobile touch controls are shown",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Two-finger steer plus boost works",
+      "passed": true,
+      "detail": "{'energy': 86.80000000000001, 'dx': 129.95442594099882}"
+    },
+    {
+      "test": "Touch release clears both inputs",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Keyboard input inside sandbox: allow-scripts allow-same-origin",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Storage denial does not break game: allow-scripts allow-same-origin",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Keyboard input inside sandbox: allow-scripts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "Storage denial does not break game: allow-scripts",
+      "passed": true,
+      "detail": ""
+    },
+    {
+      "test": "No runtime errors across desktop, mobile, and sandbox tests",
+      "passed": true,
+      "detail": "[]"
+    }
+  ],
+  "runtimeErrors": [],
+  "notes": [
+    "Game loaded with Playwright set_content because browser navigation is blocked in this environment.",
+    "WebGL2 unavailable here; the animated 2D dither fallback was exercised.",
+    "Real X Player Card acceptance and public deployment are not tested."
+  ]
+}

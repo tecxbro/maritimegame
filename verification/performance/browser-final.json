@@ -1,0 +1,70 @@
+[
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:33:29.131Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 624,
+      "height": 400
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 20.1,
+      "p95": 42.475
+    },
+    "observedFrameIntervalMs": {
+      "median": 16.7,
+      "p95": 67.53
+    },
+    "observedFPS": 31.13,
+    "measuredWallTimeMs": 5782
+  },
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:34:23.630Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 624,
+      "height": 400
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 20.95,
+      "p95": 78.91
+    },
+    "observedFrameIntervalMs": {
+      "median": 16.7,
+      "p95": 134.13
+    },
+    "observedFPS": 28.28,
+    "measuredWallTimeMs": 6365.3
+  }
+]

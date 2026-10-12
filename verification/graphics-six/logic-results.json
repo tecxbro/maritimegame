@@ -1,0 +1,105 @@
+[
+  {
+    "name": "Six selection permutations: exactly player plus other five captains",
+    "pass": true,
+    "data": 6
+  },
+  {
+    "name": "HUD has six distinct standings and /6 position count",
+    "pass": true
+  },
+  {
+    "name": "Restart clears paused/countdown/race state and inputs",
+    "pass": true
+  },
+  {
+    "name": "Pause freezes all six racers and race clock",
+    "pass": true
+  },
+  {
+    "name": "Rank comparator orders finish times before progress",
+    "pass": true
+  },
+  {
+    "name": "Player finish placement supports all six ranks",
+    "pass": true,
+    "data": [
+      "First place.",
+      "Second place.",
+      "Third place.",
+      "Fourth place.",
+      "Fifth place.",
+      "Sixth place."
+    ]
+  },
+  {
+    "name": "Same-step finishes are interpolated independently for all six racers",
+    "pass": true,
+    "data": [
+      100.01363636363637,
+      100.01178869519289,
+      100.00961763874946,
+      100.0072132290621,
+      100.00480303908297,
+      100.00233025507181
+    ]
+  },
+  {
+    "name": "Tie at second place does not turn entire field into first-place ties",
+    "pass": true,
+    "data": "OpenClaw · 01:40.000 · 2 laps · 2 of 6."
+  },
+  {
+    "name": "All fifteen boat pairs collide, including CPU versus CPU",
+    "pass": true,
+    "data": 15
+  },
+  {
+    "name": "Lapped boat contact uses physical track distance",
+    "pass": true
+  },
+  {
+    "name": "Collision cooldowns are pair-local and cleared on restart",
+    "pass": true
+  },
+  {
+    "name": "Six-way finish tie gives all six rank one",
+    "pass": true
+  },
+  {
+    "name": "Five CPUs complete both laps and stay stopped while player remains racing",
+    "pass": true,
+    "data": [
+      {
+        "name": "Muse",
+        "time": 133.61772596988996
+      },
+      {
+        "name": "Grokbot",
+        "time": 135.05506703391072
+      },
+      {
+        "name": "Dot",
+        "time": 136.40773331602267
+      },
+      {
+        "name": "Fofo",
+        "time": 135.93078416761634
+      },
+      {
+        "name": "Instinct",
+        "time": 134.7778403493552
+      }
+    ]
+  },
+  {
+    "name": "40 FPS fixture stays finite across full six-racer field",
+    "pass": true,
+    "data": {
+      "frames": 1200,
+      "simulatedSeconds": 29.999999999999364,
+      "logicElapsedMs": 87.538431,
+      "note": "Mocked canvas; not evidence of browser rendering FPS"
+    }
+  }
+]

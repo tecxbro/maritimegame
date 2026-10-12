@@ -1,0 +1,88 @@
+Browser tab: 9, Title: "River renderer browser benchmark", URL: "https://maritime-buoy-run.felix-xiong.chatgpt.site/benchmark".
+0 AXWebArea River renderer browser benchmark, URL: maritime-buoy-run.felix-xiong.chatgpt.site/benchmark
+	1 container
+		2 heading River renderer: actual browser Canvas benchmark, Value: 1
+			3 text River renderer: actual browser Canvas benchmark
+		4 text Each run uses the same deterministic moving race and production camera, 20 warmup frames, then 180 measured animation frames. Keep this tab visible. Run both variants in the same browser and repeat in reverse order to check run-order effects.
+		5 button Run baseline, ID: baseline
+		6 button Run optimized, ID: optimized
+		7 button (disabled) Abort, ID: abort
+		21 text optimized complete. 40.76 observed FPS; render JS median 22.1 ms, p95 32.305 ms.
+	9 container
+		20 image Description: Live optimized benchmark render, ID: scene
+		11 heading Results, Value: 2
+			12 text Results
+		22 text [
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T20:09:27.636Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 763,
+      "height": 489
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, all six captain boats, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 23,
+      "p95": 33.305
+    },
+    "observedFrameIntervalMs": {
+      "median": 33.3,
+      "p95": 33.4
+    },
+    "observedFPS": 38.04,
+    "measuredWallTimeMs": 4732.4
+  },
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T20:09:48.861Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 763,
+      "height": 489
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, all six captain boats, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 22.1,
+      "p95": 32.305
+    },
+    "observedFrameIntervalMs": {
+      "median": 16.7,
+      "p95": 33.4
+    },
+    "observedFPS": 40.76,
+    "measuredWallTimeMs": 4415.7
+  }
+]
+		14 button (collapsed) What the numbers mean, Secondary Actions: Expand
+			15 text What the numbers mean
+
+The focused UI element is 0 AXWebArea River renderer browser benchmark, URL: maritime-buoy-run.felix-xiong.chatgpt.site/benchmark

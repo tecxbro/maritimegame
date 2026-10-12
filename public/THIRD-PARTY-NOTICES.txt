@@ -1,0 +1,13 @@
+Maritime Rivals — third-party source notices
+
+CameraRig, waves.js and util.js adapted from Tidebreaker by hammadshakeelai.
+https://github.com/hammadshakeelai/Tidebreaker
+Source commit 27d7bf5c93e92f057dbb420bd0484d160e6d8bb8
+License: MIT. Full license: vendor/tidebreaker/LICENSE.txt.
+Changes: module import paths, river wave scale; adapted camera framing.
+World-space persistent wake sampling is inspired by its wake.js implementation.
+No third-party boat, audio, font or photographic assets copied.
+
+Three.js r160 — MIT, see THREE-LICENSE.txt.
+Boat model and renders: original Blender artwork created for this game.
+Vegetation atlas: generated with OpenAI ImageGen for this game.

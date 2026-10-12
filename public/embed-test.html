@@ -1,0 +1,37 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Buoy Run / Player Card preflight</title><style>
+*{box-sizing:border-box}body{margin:0;background:#0a0d0e;color:#e4e9e0;font:14px Arial,sans-serif;padding:35px 20px}main{max-width:860px;margin:auto}h1{font-size:30px;font-weight:400;letter-spacing:-1px}p{color:#a1afa3;line-height:1.7;max-width:680px}.tag{color:#fa9186;font:10px monospace;letter-spacing:1px}iframe{width:100%;aspect-ratio:4/3;display:block;border:1px solid #3a483f;border-radius:5px;background:#0a0d0e;margin:22px 0}code{background:#1b241e;padding:3px 5px;word-break:break-all}a{color:#e2e8df}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:24px 0}button,.button{display:inline-block;padding:13px 18px;background:#e5ebe0;color:#121a13;border:0;font-size:12px;text-decoration:none;border-radius:3px;cursor:pointer}.outline{background:none;border:1px solid #4b6151;color:#b7cdbb}.status{font-family:monospace;font-size:12px;white-space:pre-wrap;background:#111a15;padding:18px;border:1px solid #2f3c33;line-height:1.7}.note{font-size:12px}label{display:block;color:#c1ccc2;margin:15px 0;font-size:12px}</style></head><body><main>
+<span class="tag">MARITIME / PLAYER CARD PREFLIGHT</span><h1>One boat, inside another page.</h1><p>This is a real sandboxed iframe. Type a callsign, start the game, and use WASD, arrows, or touch. This checks our embed, not X's handling of the link.</p>
+<label><input type="checkbox" id="opaque"> Test the stricter sandbox (no same-origin permission or persistent storage)</label>
+<iframe id="player" title="Playable Buoy Run boat game" src="./player.html" sandbox="allow-scripts allow-same-origin" allow="fullscreen" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+<div class="actions"><button id="check">Check Player Card setup</button><button class="outline" id="compose">Open X post composer ↗</button><a class="button outline" href="./">Play full size ↗</a></div>
+<div class="status" id="status" role="status">Ready for preflight.</div><p class="note">Post the main page URL, not player.html. The main page's HTML contains the Player Card metadata. X decides how it renders that link; this page does not claim to simulate X.</p>
+<p class="note">Share URL: <code>__PUBLIC_URL__/</code><br>Player URL: <code>__PUBLIC_URL__/player.html</code></p>
+<script>
+const statusEl=document.getElementById('status');
+document.getElementById('opaque').onchange=e=>{const f=document.getElementById('player');f.setAttribute('sandbox',e.target.checked?'allow-scripts':'allow-scripts allow-same-origin');f.src='./player.html?t='+Date.now();};
+document.getElementById('check').onclick=async()=>{
+try{
+const base='__PUBLIC_URL__';
+const response=await fetch('./');const html=await response.text();const page=new DOMParser().parseFromString(html,'text/html');
+const meta=n=>page.querySelector('meta[name="'+n+'"]')?.content;
+const player=meta('twitter:player'),image=meta('twitter:image');
+const [pr,im]=await Promise.all([fetch(player,{method:'HEAD'}),fetch(image,{method:'HEAD'})]);
+const frameHeader=pr.headers.get('x-frame-options');const csp=pr.headers.get('content-security-policy')||'';
+const lines=[
+ (response.ok?'PASS':'FAIL')+'  Shared page HTTP '+response.status,
+ (meta('twitter:card')==='player'?'PASS':'FAIL')+'  twitter:card = '+meta('twitter:card'),
+ (base.startsWith('https://')?'PASS':'LOCAL')+'  HTTPS public URL: '+base,
+ (pr.ok?'PASS':'FAIL')+'  Player page HTTP '+pr.status,
+ (im.ok?'PASS':'FAIL')+'  Preview image HTTP '+im.status,
+ (!frameHeader&&!csp.includes('frame-ancestors')?'PASS':'REVIEW')+'  Frame headers: '+(frameHeader||csp||'no frame-blocking headers'),
+ 'INFO  twitter:site = '+(meta('twitter:site')||'not set; set TWITTER_SITE=@yourhandle for card attribution'),
+ '', 'NEXT  Post the main URL to X and test the actual card.', '      An iframe preflight is not an X acceptance test.'
+];statusEl.textContent=lines.join('\n');
+}catch(e){statusEl.textContent='Preflight request failed: '+e.message+'\nUse the local server or a public HTTPS deployment, not file://.';}};
+document.getElementById('compose').onclick=()=>{
+ const base='__PUBLIC_URL__';
+ if(!base.startsWith('https://')){statusEl.textContent='This is a local build. Deploy to HTTPS, then use the composer with that public link.';return;}
+ const text='i made a tiny boat game. let’s see if it plays inside a tweet. ⛵';
+ window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(text)+'&url='+encodeURIComponent(base+'/'),'_blank','noopener,noreferrer');
+};
+</script></main></body></html>

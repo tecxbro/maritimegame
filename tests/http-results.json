@@ -1,0 +1,38 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "xFrameOptions": null
+  },
+  {
+    "path": "/player.html",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "xFrameOptions": null
+  },
+  {
+    "path": "/preview.png",
+    "status": 200,
+    "type": "image/png",
+    "xFrameOptions": null
+  },
+  {
+    "path": "/embed-test.html",
+    "status": 200,
+    "type": "text/html; charset=utf-8",
+    "xFrameOptions": null
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "type": "text/plain; charset=utf-8",
+    "xFrameOptions": null
+  },
+  {
+    "path": "/build-info.json",
+    "status": 200,
+    "type": "application/json; charset=utf-8",
+    "xFrameOptions": null
+  }
+]

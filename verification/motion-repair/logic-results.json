@@ -1,0 +1,182 @@
+[
+  {
+    "name": "Six selection permutations: exactly player plus other five captains",
+    "pass": true,
+    "data": 6
+  },
+  {
+    "name": "HUD has six distinct standings and /6 position count",
+    "pass": true
+  },
+  {
+    "name": "Restart clears paused/countdown/race state and inputs",
+    "pass": true
+  },
+  {
+    "name": "Pause freezes all six racers and race clock",
+    "pass": true
+  },
+  {
+    "name": "Rank comparator orders finish times before progress",
+    "pass": true
+  },
+  {
+    "name": "Player finish placement supports all six ranks",
+    "pass": true,
+    "data": [
+      "First place.",
+      "Second place.",
+      "Third place.",
+      "Fourth place.",
+      "Fifth place.",
+      "Sixth place."
+    ]
+  },
+  {
+    "name": "Same-step finishes are interpolated independently for all six racers",
+    "pass": true,
+    "data": [
+      100.01363636363637,
+      100.01178869519289,
+      100.00961763874946,
+      100.0072132290621,
+      100.00480303908297,
+      100.00233025507181
+    ]
+  },
+  {
+    "name": "Tie at second place does not turn entire field into first-place ties",
+    "pass": true,
+    "data": "OpenClaw · 01:40.000 · 2 laps · 2 of 6."
+  },
+  {
+    "name": "All fifteen boat pairs collide, including CPU versus CPU",
+    "pass": true,
+    "data": 15
+  },
+  {
+    "name": "Lapped boat contact uses physical track distance",
+    "pass": true
+  },
+  {
+    "name": "Collision cooldowns are pair-local and cleared on restart",
+    "pass": true
+  },
+  {
+    "name": "Six-way finish tie gives all six rank one",
+    "pass": true
+  },
+  {
+    "name": "Five CPUs complete both laps and stay stopped while player remains racing",
+    "pass": true,
+    "data": [
+      {
+        "name": "Muse",
+        "time": 134.5522686827915
+      },
+      {
+        "name": "Grokbot",
+        "time": 137.60653922727138
+      },
+      {
+        "name": "Dot",
+        "time": 138.7621357355773
+      },
+      {
+        "name": "Fofo",
+        "time": 138.63351398839467
+      },
+      {
+        "name": "Instinct",
+        "time": 137.06546825379073
+      }
+    ]
+  },
+  {
+    "name": "40 FPS fixture stays finite across full six-racer field",
+    "pass": true,
+    "data": {
+      "frames": 1200,
+      "simulatedSeconds": 29.999999999999364,
+      "logicElapsedMs": 101.107441,
+      "note": "Mocked canvas; not evidence of browser rendering FPS"
+    }
+  },
+  {
+    "name": "Widened bank margin matches continuous hull",
+    "pass": true,
+    "data": {
+      "cases": 218
+    }
+  },
+  {
+    "name": "Elliptical hull contacts include fore/aft and exclude diagonal gaps",
+    "pass": true,
+    "data": [
+      {
+        "along": 0,
+        "across": 5.4,
+        "hit": true
+      },
+      {
+        "along": 0,
+        "across": 5.6,
+        "hit": false
+      },
+      {
+        "along": 11.5,
+        "across": 0,
+        "hit": true
+      },
+      {
+        "along": 11.7,
+        "across": 0,
+        "hit": false
+      },
+      {
+        "along": 10,
+        "across": 2.9,
+        "hit": false
+      },
+      {
+        "along": 10,
+        "across": 2,
+        "hit": true
+      },
+      {
+        "along": 8,
+        "across": 3,
+        "hit": true
+      }
+    ]
+  },
+  {
+    "name": "Lapped and start-line wrapped hull contacts stay within banks",
+    "pass": true,
+    "data": {
+      "cases": 5
+    }
+  },
+  {
+    "name": "Race and countdown camera switches ease over 0.45 seconds",
+    "pass": true,
+    "data": [
+      {
+        "phase": "race",
+        "initialStep": 17.850770291502812
+      },
+      {
+        "phase": "countdown",
+        "initialStep": 17.850770291502812
+      }
+    ]
+  },
+  {
+    "name": "Repeated camera switches remain finite, pause snaps, retry/recovery clear blend",
+    "pass": true,
+    "data": {
+      "switches": 60,
+      "maxFirstFrameStep": 0.07164613387333482
+    }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "size": [
+      360,
+      270
+    ],
+    "buttonVisible": true,
+    "inputVisible": true,
+    "noHorizontalOverflow": true
+  },
+  {
+    "size": [
+      600,
+      450
+    ],
+    "buttonVisible": true,
+    "inputVisible": true,
+    "noHorizontalOverflow": true
+  },
+  {
+    "size": [
+      800,
+      600
+    ],
+    "buttonVisible": true,
+    "inputVisible": true,
+    "noHorizontalOverflow": true
+  },
+  {
+    "size": [
+      390,
+      390
+    ],
+    "buttonVisible": true,
+    "inputVisible": true,
+    "noHorizontalOverflow": true
+  },
+  {
+    "size": [
+      320,
+      568
+    ],
+    "buttonVisible": true,
+    "inputVisible": true,
+    "noHorizontalOverflow": true
+  }
+]

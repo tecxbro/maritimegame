@@ -1,0 +1,23 @@
+PASS startup/imports/real CameraRig snap
+PASS matchups 30
+PASS countdown/pause/resume camera frozen
+PASS retry/reset all state
+PASS same-frame player [ 100.00227716982404, 100.01675555215083 ]
+PASS same-frame ai [ 100.01594018876827, 100.00239432765188 ]
+PASS EXACT TIE Photo finish. You tied with Instinct. 01:40.000 · 2 laps. rank 1=
+PASS mobile gas+steering, independent release, pointercancel
+PASS MULTIPOINTER/LOST CAPTURE/PHASE CLEAR gas= false lostcapture handler= function
+PASS blur auto-pause clears input
+PASS camera chase fov 61.38877900084899
+PASS camera helm fov 78.39082294246424
+PASS camera far fov 61.44143896276429
+FRAME STEP RESULTS [{"fps":10,"time":12.000000000000176,"d":415.46841254172256,"speed":44,"ai":337.87828430848714,"clock":11.999999999999973},{"fps":15,"time":12.000000000000128,"d":415.4684125417214,"speed":44,"ai":337.87828430848754,"clock":12.000000000000036},{"fps":30,"time":12.000000000000128,"d":415.46841254127,"speed":44,"ai":337.8780670864906,"clock":11.999999999999947},{"fps":60,"time":11.99999999999998,"d":415.46841254171824,"speed":44,"ai":337.87828430848725,"clock":11.999999999999853},{"fps":120,"time":12.000000000000211,"d":414.8536006631709,"speed":44,"ai":337.63037214169486,"clock":12.000000000000211}]
+PASS full race delay 0 finish times [ 101.86157562262257, 0 ] rank 1
+PASS full race delay 60 finish times [ 161.8283606482622, 136.25636047767136 ] rank 2
+PASS FINISH TIMERS HUD= 01:40.002 modal= You beat Grokbot. 01:40.002 · 2 laps. exact= 100.0022764281931 raceTime= 100.01666666666667
+PASS ASSET READY GATE / 6 PORTRAITS
+PASS FROZEN/RESUME/RESIZE/RETRY REPAINT AND MENU THROTTLE {"menuDraws":10,"pausedDraws":12,"finishDraws":15,"total":17}
+PASS ACTUAL RENDERER API {"frames":648,"drawImageCalls":274383,"otherCanvasCalls":2875155,"wakes":40}
+PASS NEAR-PLANE / LANES / SHARP BENDS {"frames":846,"stats":{"clipCrossings":37346,"clippedPolygons":50410,"partialBoatAtlases":65,"primitiveBoats":0},"bends":[729,909,1119,1794,1347,525],"draws":343063,"calls":3566828}
+PASS CACHE / IMMUTABILITY / BACKING CAP {"cacheBefore":582,"maxCache":1800,"frames":956,"scales":[{"w":1280,"h":720,"pixels":600173,"scale":0.807},{"w":390,"h":844,"pixels":329160,"scale":1},{"w":1920,"h":1080,"pixels":600173,"scale":0.538},{"w":3840,"h":2160,"pixels":600173,"scale":0.269}]}
+PASS ADAPTIVE RESOLUTION / SAME-SIZE RESIZE / NO BLANK {"transitions":[{"frame":46,"budget":432000},{"frame":92,"budget":311040},{"frame":138,"budget":250000}],"restores":[287500,330625,380219,437252,502840,578266,600000],"min":250000,"max":600000,"finalPixels":600173}

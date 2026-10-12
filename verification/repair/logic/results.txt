@@ -1,0 +1,40 @@
+PASS All 30 unique captain matchups initialize and retry { matchups: 30 }
+PASS Shared width collision stops at actual shore clearance with no acceleration { locations: 738, rendererImportsSharedWidth: true }
+PASS Stopped left/right steering cannot strafe 300 frames in both directions
+PASS Left/right controls turn oppositely under power and braking stops { lanes: [ 5.03070659854935, -4.9280743417292685 ] }
+PASS Reset latches once per hold and rearms after release { resets: 2 }
+PASS Paused camera changes immediately and restart snaps selected mode helm and far change while paused; far survives restart
+PASS Countdown pause/resume, race pause, and retry clear state countdown and race freeze; retry resets inputs/timers/positions
+PASS Finish interpolation, winner ordering and exact HUD timer [
+  [ 100.00227716982404, 100.01674230205673 ],
+  [ 100.01594018876827, 100.00239262461314 ]
+]
+PASS Touch independent fingers and cancellation 
+PASS Menu space retains button keyboard activation 
+PASS Executable full race under closed-loop controls {
+  delay: 0,
+  finishTimes: [ 93.95469497624357, 0 ],
+  rank: 1,
+  bankFrames: 0,
+  steps: 5638
+}
+PASS Late player finishes after CPU, no premature race timeout {
+  delay: 150,
+  finishTimes: [ 243.94284265771168, 132.45898515969753 ],
+  rank: 2,
+  bankFrames: 0,
+  steps: 5637
+}
+PASS No-input idle race remains recoverable after 10 minutes No automatic DNF/timeout exists; retry remains available
+PASS Bank contact cannot push either racer beyond shoreline { cases: 12 }
+PASS Paused mode changes snap FOV immediately at rest and full speed [
+  { mode: 'helm', speed: 0, fov: 70 },
+  { mode: 'far', speed: 0, fov: 55 },
+  { mode: 'chase', speed: 0, fov: 55 },
+  { mode: 'helm', speed: 44, fov: 80 },
+  { mode: 'far', speed: 44, fov: 63 },
+  { mode: 'chase', speed: 44, fov: 63 }
+]
+PASS Single Z keydown recovers immediately; repeat does not retrigger { immediateSnaps: 1, afterRepeatedEvents: 1, afterSecondPress: 2 }
+PASS RESET button works in race and is disabled outside race menu/countdown/paused/finish guarded; race click immediately recovers
+PASS Recovery preserves progress and camera mode, never adds speed { cases: 18 }

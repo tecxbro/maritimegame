@@ -1,0 +1,138 @@
+[
+  {
+    "variant": "baseline",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:26:31.325Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 65.15,
+      "p95": 95.575
+    },
+    "observedFrameIntervalMs": {
+      "median": 66.7,
+      "p95": 100.1
+    },
+    "observedFPS": 13.35,
+    "measuredWallTimeMs": 13480.3
+  },
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:26:56.198Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 967,
+      "height": 620
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 31.3,
+      "p95": 39.915
+    },
+    "observedFrameIntervalMs": {
+      "median": 33.3,
+      "p95": 50
+    },
+    "observedFPS": 30.43,
+    "measuredWallTimeMs": 5915.4
+  },
+  {
+    "variant": "optimized",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:28:12.611Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 967,
+      "height": 620
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 26.55,
+      "p95": 36.56
+    },
+    "observedFrameIntervalMs": {
+      "median": 33.3,
+      "p95": 49.905
+    },
+    "observedFPS": 34.08,
+    "measuredWallTimeMs": 5282.2
+  },
+  {
+    "variant": "baseline",
+    "status": "complete",
+    "startedAt": "2026-10-10T05:28:35.410Z",
+    "warmupFrames": 20,
+    "measuredFrames": 180,
+    "frameIntervals": 180,
+    "logicalResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "backingResolution": {
+      "width": 1180,
+      "height": 757
+    },
+    "devicePixelRatio": 1,
+    "browserViewport": {
+      "width": 1180,
+      "height": 757
+    },
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/154.0.0.0 Safari/537.36",
+    "scenario": "chase camera, Muse and Grok, distance=0.31*courseLength+40*t, fixed simulation dt=1/60; frame-index deterministic",
+    "timingSource": "performance.now around renderer.draw; native requestAnimationFrame callback timestamps",
+    "renderJSms": {
+      "median": 62.15,
+      "p95": 93.4
+    },
+    "observedFrameIntervalMs": {
+      "median": 66.7,
+      "p95": 100
+    },
+    "observedFPS": 14.48,
+    "measuredWallTimeMs": 12430.6
+  }
+]

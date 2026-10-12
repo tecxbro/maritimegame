@@ -1,0 +1,151 @@
+{
+  "note": "Deliberately delayed source-sampling stress test; real-browser verification still required.",
+  "baseline": {
+    "label": "baseline HEAD",
+    "frames": 48,
+    "boatDraws": 288,
+    "mutatedSources": 240,
+    "framesWithoutSixSources": 48,
+    "duplicateRasters": 0,
+    "dirtyOutsideCrop": 286,
+    "unexpectedCrossRacerReuse": 71,
+    "surfaceChangedForSameRacer": 0,
+    "example": [
+      {
+        "id": "instinct",
+        "surface": 1,
+        "crop": [
+          120,
+          125
+        ],
+        "original": "16bc85a6db056b0b",
+        "afterFrame": "6a33e565b12253c0"
+      },
+      {
+        "id": "fofo",
+        "surface": 1,
+        "crop": [
+          133,
+          147
+        ],
+        "original": "48ee974d7f61215a",
+        "afterFrame": "6920311a28f6e73f"
+      },
+      {
+        "id": "dot",
+        "surface": 1,
+        "crop": [
+          144,
+          150
+        ],
+        "original": "852203fb1850b8cf",
+        "afterFrame": "b4b404aaf1ec1d29"
+      },
+      {
+        "id": "grok",
+        "surface": 1,
+        "crop": [
+          144,
+          148
+        ],
+        "original": "71a60257158ac353",
+        "afterFrame": "3c7eba970d937df9"
+      },
+      {
+        "id": "muse",
+        "surface": 1,
+        "crop": [
+          144,
+          181
+        ],
+        "original": "d14fc990b669b01c",
+        "afterFrame": "dcdb5dbb567473ae"
+      },
+      {
+        "id": "openclaw",
+        "surface": 1,
+        "crop": [
+          200,
+          256
+        ],
+        "original": "96d6f13dc11b9e50",
+        "afterFrame": "96d6f13dc11b9e50"
+      }
+    ],
+    "pass": false
+  },
+  "fixed": {
+    "label": "working repair",
+    "frames": 48,
+    "boatDraws": 288,
+    "mutatedSources": 0,
+    "framesWithoutSixSources": 0,
+    "duplicateRasters": 0,
+    "dirtyOutsideCrop": 0,
+    "unexpectedCrossRacerReuse": 0,
+    "surfaceChangedForSameRacer": 0,
+    "example": [
+      {
+        "id": "instinct",
+        "surface": 2,
+        "crop": [
+          120,
+          125
+        ],
+        "original": "16bc85a6db056b0b",
+        "afterFrame": "16bc85a6db056b0b"
+      },
+      {
+        "id": "fofo",
+        "surface": 3,
+        "crop": [
+          133,
+          147
+        ],
+        "original": "48ee974d7f61215a",
+        "afterFrame": "48ee974d7f61215a"
+      },
+      {
+        "id": "dot",
+        "surface": 4,
+        "crop": [
+          144,
+          150
+        ],
+        "original": "852203fb1850b8cf",
+        "afterFrame": "852203fb1850b8cf"
+      },
+      {
+        "id": "grok",
+        "surface": 5,
+        "crop": [
+          144,
+          148
+        ],
+        "original": "71a60257158ac353",
+        "afterFrame": "71a60257158ac353"
+      },
+      {
+        "id": "muse",
+        "surface": 6,
+        "crop": [
+          144,
+          181
+        ],
+        "original": "d14fc990b669b01c",
+        "afterFrame": "d14fc990b669b01c"
+      },
+      {
+        "id": "openclaw",
+        "surface": 7,
+        "crop": [
+          200,
+          256
+        ],
+        "original": "96d6f13dc11b9e50",
+        "afterFrame": "96d6f13dc11b9e50"
+      }
+    ],
+    "pass": true
+  }
+}

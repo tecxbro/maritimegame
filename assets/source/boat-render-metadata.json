@@ -1,0 +1,3126 @@
+{
+  "name": "Sunfish 07 original arcade hydroplane",
+  "tileWidth": 768,
+  "tileHeight": 512,
+  "layout": {
+    "columns": 3,
+    "rows": 3
+  },
+  "headings": [
+    -40,
+    -30,
+    -20,
+    -10,
+    0,
+    10,
+    20,
+    30,
+    40
+  ],
+  "camera": {
+    "projection": "orthographic",
+    "orthoScale": 8.1,
+    "target": [
+      0,
+      0.1,
+      0.4
+    ]
+  },
+  "modelAxes": {
+    "forward": "+Y",
+    "right": "+X",
+    "up": "+Z"
+  },
+  "anchorsBoatSpace": {
+    "seat": [
+      0,
+      -0.45,
+      0.76
+    ],
+    "bow": [
+      0,
+      3.47,
+      0.48
+    ],
+    "stern": [
+      0,
+      -3.17,
+      0.06
+    ],
+    "sternLeft": [
+      -0.86,
+      -3.22,
+      0.06
+    ],
+    "sternRight": [
+      0.86,
+      -3.22,
+      0.06
+    ],
+    "waterline": [
+      0,
+      -0.5,
+      0
+    ],
+    "cockpitFront": [
+      0,
+      0.7,
+      0.73
+    ]
+  },
+  "variants": {
+    "player": {
+      "elevation18": {
+        "atlas": "player-e18-heading-atlas.png",
+        "frames": [
+          {
+            "index": 0,
+            "headingDegrees": -40,
+            "image": "player-e18-heading-40.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                411.43,
+                236.57
+              ],
+              "bow": [
+                172.52,
+                173.83
+              ],
+              "stern": [
+                577.2,
+                360.74
+              ],
+              "sternLeft": [
+                517.78,
+                378.06
+              ],
+              "sternRight": [
+                642.71,
+                345.66
+              ],
+              "waterline": [
+                414.47,
+                306.22
+              ],
+              "cockpitFront": [
+                341.34,
+                213.46
+              ]
+            },
+            "alphaBounds": {
+              "x": 167,
+              "y": 160,
+              "w": 499,
+              "h": 234
+            },
+            "croppedAnchors": {
+              "seat": [
+                317.43,
+                104.57
+              ],
+              "bow": [
+                78.52,
+                41.83
+              ],
+              "stern": [
+                483.2,
+                228.74
+              ],
+              "sternLeft": [
+                423.78,
+                246.06
+              ],
+              "sternRight": [
+                548.71,
+                213.66
+              ],
+              "waterline": [
+                320.47,
+                174.22
+              ],
+              "cockpitFront": [
+                247.34,
+                81.46
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 1,
+            "headingDegrees": -30,
+            "image": "player-e18-heading-30.png",
+            "rect": {
+              "x": 768,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                405.33,
+                237.89
+              ],
+              "bow": [
+                219.5,
+                163.67
+              ],
+              "stern": [
+                534.28,
+                370.02
+              ],
+              "sternLeft": [
+                466.04,
+                383.89
+              ],
+              "sternRight": [
+                607.27,
+                358.69
+              ],
+              "waterline": [
+                407.7,
+                307.69
+              ],
+              "cockpitFront": [
+                350.81,
+                211.41
+              ]
+            },
+            "alphaBounds": {
+              "x": 213,
+              "y": 151,
+              "w": 420,
+              "h": 249
+            },
+            "croppedAnchors": {
+              "seat": [
+                311.33,
+                105.89
+              ],
+              "bow": [
+                125.5,
+                31.67
+              ],
+              "stern": [
+                440.28,
+                238.02
+              ],
+              "sternLeft": [
+                372.04,
+                251.89
+              ],
+              "sternRight": [
+                513.27,
+                226.69
+              ],
+              "waterline": [
+                313.7,
+                175.69
+              ],
+              "cockpitFront": [
+                256.81,
+                79.41
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 2,
+            "headingDegrees": -20,
+            "image": "player-e18-heading-20.png",
+            "rect": {
+              "x": 1536,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                398.59,
+                238.86
+              ],
+              "bow": [
+                271.47,
+                156.18
+              ],
+              "stern": [
+                486.8,
+                376.87
+              ],
+              "sternLeft": [
+                411.8,
+                386.86
+              ],
+              "sternRight": [
+                565.04,
+                369.63
+              ],
+              "waterline": [
+                400.21,
+                308.77
+              ],
+              "cockpitFront": [
+                361.3,
+                209.9
+              ]
+            },
+            "alphaBounds": {
+              "x": 240,
+              "y": 145,
+              "w": 351,
+              "h": 256
+            },
+            "croppedAnchors": {
+              "seat": [
+                304.59,
+                106.86
+              ],
+              "bow": [
+                177.47,
+                24.18
+              ],
+              "stern": [
+                392.8,
+                244.87
+              ],
+              "sternLeft": [
+                317.8,
+                254.86
+              ],
+              "sternRight": [
+                471.04,
+                237.63
+              ],
+              "waterline": [
+                306.21,
+                176.77
+              ],
+              "cockpitFront": [
+                267.3,
+                77.9
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 3,
+            "headingDegrees": -10,
+            "image": "player-e18-heading-10.png",
+            "rect": {
+              "x": 0,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                391.41,
+                239.45
+              ],
+              "bow": [
+                326.87,
+                151.59
+              ],
+              "stern": [
+                436.19,
+                381.06
+              ],
+              "sternLeft": [
+                356.71,
+                386.88
+              ],
+              "sternRight": [
+                517.32,
+                378.12
+              ],
+              "waterline": [
+                392.23,
+                309.43
+              ],
+              "cockpitFront": [
+                372.47,
+                208.97
+              ]
+            },
+            "alphaBounds": {
+              "x": 250,
+              "y": 141,
+              "w": 303,
+              "h": 260
+            },
+            "croppedAnchors": {
+              "seat": [
+                297.41,
+                107.45
+              ],
+              "bow": [
+                232.87,
+                19.59
+              ],
+              "stern": [
+                342.19,
+                249.06
+              ],
+              "sternLeft": [
+                262.71,
+                254.88
+              ],
+              "sternRight": [
+                423.32,
+                246.12
+              ],
+              "waterline": [
+                298.23,
+                177.43
+              ],
+              "cockpitFront": [
+                278.47,
+                76.97
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 4,
+            "headingDegrees": 0,
+            "image": "player-e18-heading+00.png",
+            "rect": {
+              "x": 768,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                384.0,
+                239.65
+              ],
+              "bow": [
+                384.0,
+                150.05
+              ],
+              "stern": [
+                384.0,
+                382.47
+              ],
+              "sternLeft": [
+                302.46,
+                383.93
+              ],
+              "sternRight": [
+                465.54,
+                383.93
+              ],
+              "waterline": [
+                384.0,
+                309.65
+              ],
+              "cockpitFront": [
+                384.0,
+                208.66
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 140,
+              "w": 286,
+              "h": 257
+            },
+            "croppedAnchors": {
+              "seat": [
+                290.0,
+                107.65
+              ],
+              "bow": [
+                290.0,
+                18.05
+              ],
+              "stern": [
+                290.0,
+                250.47
+              ],
+              "sternLeft": [
+                208.46,
+                251.93
+              ],
+              "sternRight": [
+                371.54,
+                251.93
+              ],
+              "waterline": [
+                290.0,
+                177.65
+              ],
+              "cockpitFront": [
+                290.0,
+                76.66
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 5,
+            "headingDegrees": 10,
+            "image": "player-e18-heading+10.png",
+            "rect": {
+              "x": 1536,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                376.59,
+                239.45
+              ],
+              "bow": [
+                441.13,
+                151.59
+              ],
+              "stern": [
+                331.81,
+                381.06
+              ],
+              "sternLeft": [
+                250.68,
+                378.12
+              ],
+              "sternRight": [
+                411.29,
+                386.88
+              ],
+              "waterline": [
+                375.77,
+                309.43
+              ],
+              "cockpitFront": [
+                395.53,
+                208.97
+              ]
+            },
+            "alphaBounds": {
+              "x": 215,
+              "y": 141,
+              "w": 303,
+              "h": 259
+            },
+            "croppedAnchors": {
+              "seat": [
+                282.59,
+                107.45
+              ],
+              "bow": [
+                347.13,
+                19.59
+              ],
+              "stern": [
+                237.81,
+                249.06
+              ],
+              "sternLeft": [
+                156.68,
+                246.12
+              ],
+              "sternRight": [
+                317.29,
+                254.88
+              ],
+              "waterline": [
+                281.77,
+                177.43
+              ],
+              "cockpitFront": [
+                301.53,
+                76.97
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 6,
+            "headingDegrees": 20,
+            "image": "player-e18-heading+20.png",
+            "rect": {
+              "x": 0,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                369.41,
+                238.86
+              ],
+              "bow": [
+                496.53,
+                156.18
+              ],
+              "stern": [
+                281.2,
+                376.87
+              ],
+              "sternLeft": [
+                202.96,
+                369.63
+              ],
+              "sternRight": [
+                356.2,
+                386.86
+              ],
+              "waterline": [
+                367.79,
+                308.77
+              ],
+              "cockpitFront": [
+                406.7,
+                209.9
+              ]
+            },
+            "alphaBounds": {
+              "x": 177,
+              "y": 145,
+              "w": 350,
+              "h": 256
+            },
+            "croppedAnchors": {
+              "seat": [
+                275.41,
+                106.86
+              ],
+              "bow": [
+                402.53,
+                24.18
+              ],
+              "stern": [
+                187.2,
+                244.87
+              ],
+              "sternLeft": [
+                108.96,
+                237.63
+              ],
+              "sternRight": [
+                262.2,
+                254.86
+              ],
+              "waterline": [
+                273.79,
+                176.77
+              ],
+              "cockpitFront": [
+                312.7,
+                77.9
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 7,
+            "headingDegrees": 30,
+            "image": "player-e18-heading+30.png",
+            "rect": {
+              "x": 768,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                362.67,
+                237.89
+              ],
+              "bow": [
+                548.5,
+                163.67
+              ],
+              "stern": [
+                233.72,
+                370.02
+              ],
+              "sternLeft": [
+                160.73,
+                358.69
+              ],
+              "sternRight": [
+                301.96,
+                383.89
+              ],
+              "waterline": [
+                360.3,
+                307.69
+              ],
+              "cockpitFront": [
+                417.19,
+                211.41
+              ]
+            },
+            "alphaBounds": {
+              "x": 135,
+              "y": 151,
+              "w": 420,
+              "h": 249
+            },
+            "croppedAnchors": {
+              "seat": [
+                268.67,
+                105.89
+              ],
+              "bow": [
+                454.5,
+                31.67
+              ],
+              "stern": [
+                139.72,
+                238.02
+              ],
+              "sternLeft": [
+                66.73,
+                226.69
+              ],
+              "sternRight": [
+                207.96,
+                251.89
+              ],
+              "waterline": [
+                266.3,
+                175.69
+              ],
+              "cockpitFront": [
+                323.19,
+                79.41
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 8,
+            "headingDegrees": 40,
+            "image": "player-e18-heading+40.png",
+            "rect": {
+              "x": 1536,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                356.57,
+                236.57
+              ],
+              "bow": [
+                595.48,
+                173.83
+              ],
+              "stern": [
+                190.8,
+                360.74
+              ],
+              "sternLeft": [
+                125.29,
+                345.66
+              ],
+              "sternRight": [
+                250.22,
+                378.06
+              ],
+              "waterline": [
+                353.53,
+                306.22
+              ],
+              "cockpitFront": [
+                426.66,
+                213.46
+              ]
+            },
+            "alphaBounds": {
+              "x": 102,
+              "y": 160,
+              "w": 499,
+              "h": 234
+            },
+            "croppedAnchors": {
+              "seat": [
+                262.57,
+                104.57
+              ],
+              "bow": [
+                501.48,
+                41.83
+              ],
+              "stern": [
+                96.8,
+                228.74
+              ],
+              "sternLeft": [
+                31.29,
+                213.66
+              ],
+              "sternRight": [
+                156.22,
+                246.06
+              ],
+              "waterline": [
+                259.53,
+                174.22
+              ],
+              "cockpitFront": [
+                332.66,
+                81.46
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          }
+        ],
+        "uniformCrop": {
+          "x": 94,
+          "y": 132,
+          "w": 580,
+          "h": 277
+        },
+        "croppedAtlas": "player-e18-heading-atlas-cropped.png"
+      },
+      "elevation32": {
+        "atlas": "player-e32-heading-atlas.png",
+        "frames": [
+          {
+            "index": 0,
+            "headingDegrees": -40,
+            "image": "player-e32-heading-40.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                411.43,
+                249.4
+              ],
+              "bow": [
+                172.52,
+                121.03
+              ],
+              "stern": [
+                577.2,
+                410.37
+              ],
+              "sternLeft": [
+                517.78,
+                440.07
+              ],
+              "sternRight": [
+                642.71,
+                384.52
+              ],
+              "waterline": [
+                414.47,
+                312.43
+              ],
+              "cockpitFront": [
+                341.34,
+                207.55
+              ]
+            },
+            "alphaBounds": {
+              "x": 167,
+              "y": 113,
+              "w": 499,
+              "h": 346
+            },
+            "croppedAnchors": {
+              "seat": [
+                317.43,
+                182.4
+              ],
+              "bow": [
+                78.52,
+                54.03
+              ],
+              "stern": [
+                483.2,
+                343.37
+              ],
+              "sternLeft": [
+                423.78,
+                373.07
+              ],
+              "sternRight": [
+                548.71,
+                317.52
+              ],
+              "waterline": [
+                320.47,
+                245.43
+              ],
+              "cockpitFront": [
+                247.34,
+                140.55
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 1,
+            "headingDegrees": -30,
+            "image": "player-e32-heading-30.png",
+            "rect": {
+              "x": 768,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                405.33,
+                251.66
+              ],
+              "bow": [
+                219.5,
+                103.6
+              ],
+              "stern": [
+                534.28,
+                426.3
+              ],
+              "sternLeft": [
+                466.04,
+                450.08
+              ],
+              "sternRight": [
+                607.27,
+                406.87
+              ],
+              "waterline": [
+                407.7,
+                314.94
+              ],
+              "cockpitFront": [
+                350.81,
+                204.03
+              ]
+            },
+            "alphaBounds": {
+              "x": 213,
+              "y": 96,
+              "w": 420,
+              "h": 372
+            },
+            "croppedAnchors": {
+              "seat": [
+                311.33,
+                184.66
+              ],
+              "bow": [
+                125.5,
+                36.6
+              ],
+              "stern": [
+                440.28,
+                359.3
+              ],
+              "sternLeft": [
+                372.04,
+                383.08
+              ],
+              "sternRight": [
+                513.27,
+                339.87
+              ],
+              "waterline": [
+                313.7,
+                247.94
+              ],
+              "cockpitFront": [
+                256.81,
+                137.03
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 2,
+            "headingDegrees": -20,
+            "image": "player-e32-heading-20.png",
+            "rect": {
+              "x": 1536,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                398.59,
+                253.32
+              ],
+              "bow": [
+                271.47,
+                90.76
+              ],
+              "stern": [
+                486.8,
+                438.03
+              ],
+              "sternLeft": [
+                411.8,
+                455.17
+              ],
+              "sternRight": [
+                565.04,
+                425.61
+              ],
+              "waterline": [
+                400.21,
+                316.79
+              ],
+              "cockpitFront": [
+                361.3,
+                201.44
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 84,
+              "w": 350,
+              "h": 387
+            },
+            "croppedAnchors": {
+              "seat": [
+                304.59,
+                186.32
+              ],
+              "bow": [
+                177.47,
+                23.76
+              ],
+              "stern": [
+                392.8,
+                371.03
+              ],
+              "sternLeft": [
+                317.8,
+                388.17
+              ],
+              "sternRight": [
+                471.04,
+                358.61
+              ],
+              "waterline": [
+                306.21,
+                249.79
+              ],
+              "cockpitFront": [
+                267.3,
+                134.44
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 3,
+            "headingDegrees": -10,
+            "image": "player-e32-heading-10.png",
+            "rect": {
+              "x": 0,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                391.41,
+                254.34
+              ],
+              "bow": [
+                326.87,
+                82.89
+              ],
+              "stern": [
+                436.19,
+                445.22
+              ],
+              "sternLeft": [
+                356.71,
+                455.19
+              ],
+              "sternRight": [
+                517.32,
+                440.19
+              ],
+              "waterline": [
+                392.23,
+                317.93
+              ],
+              "cockpitFront": [
+                372.47,
+                199.85
+              ]
+            },
+            "alphaBounds": {
+              "x": 249,
+              "y": 77,
+              "w": 304,
+              "h": 393
+            },
+            "croppedAnchors": {
+              "seat": [
+                297.41,
+                187.34
+              ],
+              "bow": [
+                232.87,
+                15.89
+              ],
+              "stern": [
+                342.19,
+                378.22
+              ],
+              "sternLeft": [
+                262.71,
+                388.19
+              ],
+              "sternRight": [
+                423.32,
+                373.19
+              ],
+              "waterline": [
+                298.23,
+                250.93
+              ],
+              "cockpitFront": [
+                278.47,
+                132.85
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 4,
+            "headingDegrees": 0,
+            "image": "player-e32-heading+00.png",
+            "rect": {
+              "x": 768,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                384.0,
+                254.69
+              ],
+              "bow": [
+                384.0,
+                80.24
+              ],
+              "stern": [
+                384.0,
+                447.64
+              ],
+              "sternLeft": [
+                302.46,
+                450.15
+              ],
+              "sternRight": [
+                465.54,
+                450.15
+              ],
+              "waterline": [
+                384.0,
+                318.31
+              ],
+              "cockpitFront": [
+                384.0,
+                199.32
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 75,
+              "w": 286,
+              "h": 388
+            },
+            "croppedAnchors": {
+              "seat": [
+                290.0,
+                187.69
+              ],
+              "bow": [
+                290.0,
+                13.24
+              ],
+              "stern": [
+                290.0,
+                380.64
+              ],
+              "sternLeft": [
+                208.46,
+                383.15
+              ],
+              "sternRight": [
+                371.54,
+                383.15
+              ],
+              "waterline": [
+                290.0,
+                251.31
+              ],
+              "cockpitFront": [
+                290.0,
+                132.32
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 5,
+            "headingDegrees": 10,
+            "image": "player-e32-heading+10.png",
+            "rect": {
+              "x": 1536,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                376.59,
+                254.34
+              ],
+              "bow": [
+                441.13,
+                82.89
+              ],
+              "stern": [
+                331.81,
+                445.22
+              ],
+              "sternLeft": [
+                250.68,
+                440.19
+              ],
+              "sternRight": [
+                411.29,
+                455.19
+              ],
+              "waterline": [
+                375.77,
+                317.93
+              ],
+              "cockpitFront": [
+                395.53,
+                199.85
+              ]
+            },
+            "alphaBounds": {
+              "x": 215,
+              "y": 77,
+              "w": 304,
+              "h": 393
+            },
+            "croppedAnchors": {
+              "seat": [
+                282.59,
+                187.34
+              ],
+              "bow": [
+                347.13,
+                15.89
+              ],
+              "stern": [
+                237.81,
+                378.22
+              ],
+              "sternLeft": [
+                156.68,
+                373.19
+              ],
+              "sternRight": [
+                317.29,
+                388.19
+              ],
+              "waterline": [
+                281.77,
+                250.93
+              ],
+              "cockpitFront": [
+                301.53,
+                132.85
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 6,
+            "headingDegrees": 20,
+            "image": "player-e32-heading+20.png",
+            "rect": {
+              "x": 0,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                369.41,
+                253.32
+              ],
+              "bow": [
+                496.53,
+                90.76
+              ],
+              "stern": [
+                281.2,
+                438.03
+              ],
+              "sternLeft": [
+                202.96,
+                425.61
+              ],
+              "sternRight": [
+                356.2,
+                455.17
+              ],
+              "waterline": [
+                367.79,
+                316.79
+              ],
+              "cockpitFront": [
+                406.7,
+                201.44
+              ]
+            },
+            "alphaBounds": {
+              "x": 177,
+              "y": 84,
+              "w": 351,
+              "h": 387
+            },
+            "croppedAnchors": {
+              "seat": [
+                275.41,
+                186.32
+              ],
+              "bow": [
+                402.53,
+                23.76
+              ],
+              "stern": [
+                187.2,
+                371.03
+              ],
+              "sternLeft": [
+                108.96,
+                358.61
+              ],
+              "sternRight": [
+                262.2,
+                388.17
+              ],
+              "waterline": [
+                273.79,
+                249.79
+              ],
+              "cockpitFront": [
+                312.7,
+                134.44
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 7,
+            "headingDegrees": 30,
+            "image": "player-e32-heading+30.png",
+            "rect": {
+              "x": 768,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                362.67,
+                251.66
+              ],
+              "bow": [
+                548.5,
+                103.6
+              ],
+              "stern": [
+                233.72,
+                426.3
+              ],
+              "sternLeft": [
+                160.73,
+                406.87
+              ],
+              "sternRight": [
+                301.96,
+                450.08
+              ],
+              "waterline": [
+                360.3,
+                314.94
+              ],
+              "cockpitFront": [
+                417.19,
+                204.03
+              ]
+            },
+            "alphaBounds": {
+              "x": 136,
+              "y": 96,
+              "w": 419,
+              "h": 372
+            },
+            "croppedAnchors": {
+              "seat": [
+                268.67,
+                184.66
+              ],
+              "bow": [
+                454.5,
+                36.6
+              ],
+              "stern": [
+                139.72,
+                359.3
+              ],
+              "sternLeft": [
+                66.73,
+                339.87
+              ],
+              "sternRight": [
+                207.96,
+                383.08
+              ],
+              "waterline": [
+                266.3,
+                247.94
+              ],
+              "cockpitFront": [
+                323.19,
+                137.03
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 8,
+            "headingDegrees": 40,
+            "image": "player-e32-heading+40.png",
+            "rect": {
+              "x": 1536,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                356.57,
+                249.4
+              ],
+              "bow": [
+                595.48,
+                121.03
+              ],
+              "stern": [
+                190.8,
+                410.37
+              ],
+              "sternLeft": [
+                125.29,
+                384.52
+              ],
+              "sternRight": [
+                250.22,
+                440.07
+              ],
+              "waterline": [
+                353.53,
+                312.43
+              ],
+              "cockpitFront": [
+                426.66,
+                207.55
+              ]
+            },
+            "alphaBounds": {
+              "x": 102,
+              "y": 113,
+              "w": 499,
+              "h": 346
+            },
+            "croppedAnchors": {
+              "seat": [
+                262.57,
+                182.4
+              ],
+              "bow": [
+                501.48,
+                54.03
+              ],
+              "stern": [
+                96.8,
+                343.37
+              ],
+              "sternLeft": [
+                31.29,
+                317.52
+              ],
+              "sternRight": [
+                156.22,
+                373.07
+              ],
+              "waterline": [
+                259.53,
+                245.43
+              ],
+              "cockpitFront": [
+                332.66,
+                140.55
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          }
+        ],
+        "uniformCrop": {
+          "x": 94,
+          "y": 67,
+          "w": 580,
+          "h": 412
+        },
+        "croppedAtlas": "player-e32-heading-atlas-cropped.png"
+      }
+    },
+    "rival": {
+      "elevation18": {
+        "atlas": "rival-e18-heading-atlas.png",
+        "frames": [
+          {
+            "index": 0,
+            "headingDegrees": -40,
+            "image": "rival-e18-heading-40.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                411.43,
+                236.57
+              ],
+              "bow": [
+                172.52,
+                173.83
+              ],
+              "stern": [
+                577.2,
+                360.74
+              ],
+              "sternLeft": [
+                517.78,
+                378.06
+              ],
+              "sternRight": [
+                642.71,
+                345.66
+              ],
+              "waterline": [
+                414.47,
+                306.22
+              ],
+              "cockpitFront": [
+                341.34,
+                213.46
+              ]
+            },
+            "alphaBounds": {
+              "x": 167,
+              "y": 160,
+              "w": 499,
+              "h": 234
+            },
+            "croppedAnchors": {
+              "seat": [
+                317.43,
+                104.57
+              ],
+              "bow": [
+                78.52,
+                41.83
+              ],
+              "stern": [
+                483.2,
+                228.74
+              ],
+              "sternLeft": [
+                423.78,
+                246.06
+              ],
+              "sternRight": [
+                548.71,
+                213.66
+              ],
+              "waterline": [
+                320.47,
+                174.22
+              ],
+              "cockpitFront": [
+                247.34,
+                81.46
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 1,
+            "headingDegrees": -30,
+            "image": "rival-e18-heading-30.png",
+            "rect": {
+              "x": 768,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                405.33,
+                237.89
+              ],
+              "bow": [
+                219.5,
+                163.67
+              ],
+              "stern": [
+                534.28,
+                370.02
+              ],
+              "sternLeft": [
+                466.04,
+                383.89
+              ],
+              "sternRight": [
+                607.27,
+                358.69
+              ],
+              "waterline": [
+                407.7,
+                307.69
+              ],
+              "cockpitFront": [
+                350.81,
+                211.41
+              ]
+            },
+            "alphaBounds": {
+              "x": 213,
+              "y": 151,
+              "w": 420,
+              "h": 249
+            },
+            "croppedAnchors": {
+              "seat": [
+                311.33,
+                105.89
+              ],
+              "bow": [
+                125.5,
+                31.67
+              ],
+              "stern": [
+                440.28,
+                238.02
+              ],
+              "sternLeft": [
+                372.04,
+                251.89
+              ],
+              "sternRight": [
+                513.27,
+                226.69
+              ],
+              "waterline": [
+                313.7,
+                175.69
+              ],
+              "cockpitFront": [
+                256.81,
+                79.41
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 2,
+            "headingDegrees": -20,
+            "image": "rival-e18-heading-20.png",
+            "rect": {
+              "x": 1536,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                398.59,
+                238.86
+              ],
+              "bow": [
+                271.47,
+                156.18
+              ],
+              "stern": [
+                486.8,
+                376.87
+              ],
+              "sternLeft": [
+                411.8,
+                386.86
+              ],
+              "sternRight": [
+                565.04,
+                369.63
+              ],
+              "waterline": [
+                400.21,
+                308.77
+              ],
+              "cockpitFront": [
+                361.3,
+                209.9
+              ]
+            },
+            "alphaBounds": {
+              "x": 240,
+              "y": 145,
+              "w": 351,
+              "h": 256
+            },
+            "croppedAnchors": {
+              "seat": [
+                304.59,
+                106.86
+              ],
+              "bow": [
+                177.47,
+                24.18
+              ],
+              "stern": [
+                392.8,
+                244.87
+              ],
+              "sternLeft": [
+                317.8,
+                254.86
+              ],
+              "sternRight": [
+                471.04,
+                237.63
+              ],
+              "waterline": [
+                306.21,
+                176.77
+              ],
+              "cockpitFront": [
+                267.3,
+                77.9
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 0,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 3,
+            "headingDegrees": -10,
+            "image": "rival-e18-heading-10.png",
+            "rect": {
+              "x": 0,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                391.41,
+                239.45
+              ],
+              "bow": [
+                326.87,
+                151.59
+              ],
+              "stern": [
+                436.19,
+                381.06
+              ],
+              "sternLeft": [
+                356.71,
+                386.88
+              ],
+              "sternRight": [
+                517.32,
+                378.12
+              ],
+              "waterline": [
+                392.23,
+                309.43
+              ],
+              "cockpitFront": [
+                372.47,
+                208.97
+              ]
+            },
+            "alphaBounds": {
+              "x": 250,
+              "y": 141,
+              "w": 303,
+              "h": 260
+            },
+            "croppedAnchors": {
+              "seat": [
+                297.41,
+                107.45
+              ],
+              "bow": [
+                232.87,
+                19.59
+              ],
+              "stern": [
+                342.19,
+                249.06
+              ],
+              "sternLeft": [
+                262.71,
+                254.88
+              ],
+              "sternRight": [
+                423.32,
+                246.12
+              ],
+              "waterline": [
+                298.23,
+                177.43
+              ],
+              "cockpitFront": [
+                278.47,
+                76.97
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 4,
+            "headingDegrees": 0,
+            "image": "rival-e18-heading+00.png",
+            "rect": {
+              "x": 768,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                384.0,
+                239.65
+              ],
+              "bow": [
+                384.0,
+                150.05
+              ],
+              "stern": [
+                384.0,
+                382.47
+              ],
+              "sternLeft": [
+                302.46,
+                383.93
+              ],
+              "sternRight": [
+                465.54,
+                383.93
+              ],
+              "waterline": [
+                384.0,
+                309.65
+              ],
+              "cockpitFront": [
+                384.0,
+                208.66
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 140,
+              "w": 286,
+              "h": 257
+            },
+            "croppedAnchors": {
+              "seat": [
+                290.0,
+                107.65
+              ],
+              "bow": [
+                290.0,
+                18.05
+              ],
+              "stern": [
+                290.0,
+                250.47
+              ],
+              "sternLeft": [
+                208.46,
+                251.93
+              ],
+              "sternRight": [
+                371.54,
+                251.93
+              ],
+              "waterline": [
+                290.0,
+                177.65
+              ],
+              "cockpitFront": [
+                290.0,
+                76.66
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 5,
+            "headingDegrees": 10,
+            "image": "rival-e18-heading+10.png",
+            "rect": {
+              "x": 1536,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                376.59,
+                239.45
+              ],
+              "bow": [
+                441.13,
+                151.59
+              ],
+              "stern": [
+                331.81,
+                381.06
+              ],
+              "sternLeft": [
+                250.68,
+                378.12
+              ],
+              "sternRight": [
+                411.29,
+                386.88
+              ],
+              "waterline": [
+                375.77,
+                309.43
+              ],
+              "cockpitFront": [
+                395.53,
+                208.97
+              ]
+            },
+            "alphaBounds": {
+              "x": 215,
+              "y": 141,
+              "w": 303,
+              "h": 259
+            },
+            "croppedAnchors": {
+              "seat": [
+                282.59,
+                107.45
+              ],
+              "bow": [
+                347.13,
+                19.59
+              ],
+              "stern": [
+                237.81,
+                249.06
+              ],
+              "sternLeft": [
+                156.68,
+                246.12
+              ],
+              "sternRight": [
+                317.29,
+                254.88
+              ],
+              "waterline": [
+                281.77,
+                177.43
+              ],
+              "cockpitFront": [
+                301.53,
+                76.97
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 277,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 6,
+            "headingDegrees": 20,
+            "image": "rival-e18-heading+20.png",
+            "rect": {
+              "x": 0,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                369.41,
+                238.86
+              ],
+              "bow": [
+                496.53,
+                156.18
+              ],
+              "stern": [
+                281.2,
+                376.87
+              ],
+              "sternLeft": [
+                202.96,
+                369.63
+              ],
+              "sternRight": [
+                356.2,
+                386.86
+              ],
+              "waterline": [
+                367.79,
+                308.77
+              ],
+              "cockpitFront": [
+                406.7,
+                209.9
+              ]
+            },
+            "alphaBounds": {
+              "x": 177,
+              "y": 145,
+              "w": 350,
+              "h": 256
+            },
+            "croppedAnchors": {
+              "seat": [
+                275.41,
+                106.86
+              ],
+              "bow": [
+                402.53,
+                24.18
+              ],
+              "stern": [
+                187.2,
+                244.87
+              ],
+              "sternLeft": [
+                108.96,
+                237.63
+              ],
+              "sternRight": [
+                262.2,
+                254.86
+              ],
+              "waterline": [
+                273.79,
+                176.77
+              ],
+              "cockpitFront": [
+                312.7,
+                77.9
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 7,
+            "headingDegrees": 30,
+            "image": "rival-e18-heading+30.png",
+            "rect": {
+              "x": 768,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                362.67,
+                237.89
+              ],
+              "bow": [
+                548.5,
+                163.67
+              ],
+              "stern": [
+                233.72,
+                370.02
+              ],
+              "sternLeft": [
+                160.73,
+                358.69
+              ],
+              "sternRight": [
+                301.96,
+                383.89
+              ],
+              "waterline": [
+                360.3,
+                307.69
+              ],
+              "cockpitFront": [
+                417.19,
+                211.41
+              ]
+            },
+            "alphaBounds": {
+              "x": 135,
+              "y": 151,
+              "w": 420,
+              "h": 249
+            },
+            "croppedAnchors": {
+              "seat": [
+                268.67,
+                105.89
+              ],
+              "bow": [
+                454.5,
+                31.67
+              ],
+              "stern": [
+                139.72,
+                238.02
+              ],
+              "sternLeft": [
+                66.73,
+                226.69
+              ],
+              "sternRight": [
+                207.96,
+                251.89
+              ],
+              "waterline": [
+                266.3,
+                175.69
+              ],
+              "cockpitFront": [
+                323.19,
+                79.41
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          },
+          {
+            "index": 8,
+            "headingDegrees": 40,
+            "image": "rival-e18-heading+40.png",
+            "rect": {
+              "x": 1536,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                356.57,
+                236.57
+              ],
+              "bow": [
+                595.48,
+                173.83
+              ],
+              "stern": [
+                190.8,
+                360.74
+              ],
+              "sternLeft": [
+                125.29,
+                345.66
+              ],
+              "sternRight": [
+                250.22,
+                378.06
+              ],
+              "waterline": [
+                353.53,
+                306.22
+              ],
+              "cockpitFront": [
+                426.66,
+                213.46
+              ]
+            },
+            "alphaBounds": {
+              "x": 102,
+              "y": 160,
+              "w": 499,
+              "h": 234
+            },
+            "croppedAnchors": {
+              "seat": [
+                262.57,
+                104.57
+              ],
+              "bow": [
+                501.48,
+                41.83
+              ],
+              "stern": [
+                96.8,
+                228.74
+              ],
+              "sternLeft": [
+                31.29,
+                213.66
+              ],
+              "sternRight": [
+                156.22,
+                246.06
+              ],
+              "waterline": [
+                259.53,
+                174.22
+              ],
+              "cockpitFront": [
+                332.66,
+                81.46
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 554,
+              "w": 580,
+              "h": 277
+            }
+          }
+        ],
+        "uniformCrop": {
+          "x": 94,
+          "y": 132,
+          "w": 580,
+          "h": 277
+        },
+        "croppedAtlas": "rival-e18-heading-atlas-cropped.png"
+      },
+      "elevation32": {
+        "atlas": "rival-e32-heading-atlas.png",
+        "frames": [
+          {
+            "index": 0,
+            "headingDegrees": -40,
+            "image": "rival-e32-heading-40.png",
+            "rect": {
+              "x": 0,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                411.43,
+                249.4
+              ],
+              "bow": [
+                172.52,
+                121.03
+              ],
+              "stern": [
+                577.2,
+                410.37
+              ],
+              "sternLeft": [
+                517.78,
+                440.07
+              ],
+              "sternRight": [
+                642.71,
+                384.52
+              ],
+              "waterline": [
+                414.47,
+                312.43
+              ],
+              "cockpitFront": [
+                341.34,
+                207.55
+              ]
+            },
+            "alphaBounds": {
+              "x": 167,
+              "y": 113,
+              "w": 499,
+              "h": 346
+            },
+            "croppedAnchors": {
+              "seat": [
+                317.43,
+                182.4
+              ],
+              "bow": [
+                78.52,
+                54.03
+              ],
+              "stern": [
+                483.2,
+                343.37
+              ],
+              "sternLeft": [
+                423.78,
+                373.07
+              ],
+              "sternRight": [
+                548.71,
+                317.52
+              ],
+              "waterline": [
+                320.47,
+                245.43
+              ],
+              "cockpitFront": [
+                247.34,
+                140.55
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 1,
+            "headingDegrees": -30,
+            "image": "rival-e32-heading-30.png",
+            "rect": {
+              "x": 768,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                405.33,
+                251.66
+              ],
+              "bow": [
+                219.5,
+                103.6
+              ],
+              "stern": [
+                534.28,
+                426.3
+              ],
+              "sternLeft": [
+                466.04,
+                450.08
+              ],
+              "sternRight": [
+                607.27,
+                406.87
+              ],
+              "waterline": [
+                407.7,
+                314.94
+              ],
+              "cockpitFront": [
+                350.81,
+                204.03
+              ]
+            },
+            "alphaBounds": {
+              "x": 213,
+              "y": 96,
+              "w": 420,
+              "h": 372
+            },
+            "croppedAnchors": {
+              "seat": [
+                311.33,
+                184.66
+              ],
+              "bow": [
+                125.5,
+                36.6
+              ],
+              "stern": [
+                440.28,
+                359.3
+              ],
+              "sternLeft": [
+                372.04,
+                383.08
+              ],
+              "sternRight": [
+                513.27,
+                339.87
+              ],
+              "waterline": [
+                313.7,
+                247.94
+              ],
+              "cockpitFront": [
+                256.81,
+                137.03
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 2,
+            "headingDegrees": -20,
+            "image": "rival-e32-heading-20.png",
+            "rect": {
+              "x": 1536,
+              "y": 0,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                398.59,
+                253.32
+              ],
+              "bow": [
+                271.47,
+                90.76
+              ],
+              "stern": [
+                486.8,
+                438.03
+              ],
+              "sternLeft": [
+                411.8,
+                455.17
+              ],
+              "sternRight": [
+                565.04,
+                425.61
+              ],
+              "waterline": [
+                400.21,
+                316.79
+              ],
+              "cockpitFront": [
+                361.3,
+                201.44
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 84,
+              "w": 350,
+              "h": 387
+            },
+            "croppedAnchors": {
+              "seat": [
+                304.59,
+                186.32
+              ],
+              "bow": [
+                177.47,
+                23.76
+              ],
+              "stern": [
+                392.8,
+                371.03
+              ],
+              "sternLeft": [
+                317.8,
+                388.17
+              ],
+              "sternRight": [
+                471.04,
+                358.61
+              ],
+              "waterline": [
+                306.21,
+                249.79
+              ],
+              "cockpitFront": [
+                267.3,
+                134.44
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 0,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 3,
+            "headingDegrees": -10,
+            "image": "rival-e32-heading-10.png",
+            "rect": {
+              "x": 0,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                391.41,
+                254.34
+              ],
+              "bow": [
+                326.87,
+                82.89
+              ],
+              "stern": [
+                436.19,
+                445.22
+              ],
+              "sternLeft": [
+                356.71,
+                455.19
+              ],
+              "sternRight": [
+                517.32,
+                440.19
+              ],
+              "waterline": [
+                392.23,
+                317.93
+              ],
+              "cockpitFront": [
+                372.47,
+                199.85
+              ]
+            },
+            "alphaBounds": {
+              "x": 249,
+              "y": 77,
+              "w": 304,
+              "h": 393
+            },
+            "croppedAnchors": {
+              "seat": [
+                297.41,
+                187.34
+              ],
+              "bow": [
+                232.87,
+                15.89
+              ],
+              "stern": [
+                342.19,
+                378.22
+              ],
+              "sternLeft": [
+                262.71,
+                388.19
+              ],
+              "sternRight": [
+                423.32,
+                373.19
+              ],
+              "waterline": [
+                298.23,
+                250.93
+              ],
+              "cockpitFront": [
+                278.47,
+                132.85
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 4,
+            "headingDegrees": 0,
+            "image": "rival-e32-heading+00.png",
+            "rect": {
+              "x": 768,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                384.0,
+                254.69
+              ],
+              "bow": [
+                384.0,
+                80.24
+              ],
+              "stern": [
+                384.0,
+                447.64
+              ],
+              "sternLeft": [
+                302.46,
+                450.15
+              ],
+              "sternRight": [
+                465.54,
+                450.15
+              ],
+              "waterline": [
+                384.0,
+                318.31
+              ],
+              "cockpitFront": [
+                384.0,
+                199.32
+              ]
+            },
+            "alphaBounds": {
+              "x": 241,
+              "y": 75,
+              "w": 286,
+              "h": 388
+            },
+            "croppedAnchors": {
+              "seat": [
+                290.0,
+                187.69
+              ],
+              "bow": [
+                290.0,
+                13.24
+              ],
+              "stern": [
+                290.0,
+                380.64
+              ],
+              "sternLeft": [
+                208.46,
+                383.15
+              ],
+              "sternRight": [
+                371.54,
+                383.15
+              ],
+              "waterline": [
+                290.0,
+                251.31
+              ],
+              "cockpitFront": [
+                290.0,
+                132.32
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 5,
+            "headingDegrees": 10,
+            "image": "rival-e32-heading+10.png",
+            "rect": {
+              "x": 1536,
+              "y": 512,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                376.59,
+                254.34
+              ],
+              "bow": [
+                441.13,
+                82.89
+              ],
+              "stern": [
+                331.81,
+                445.22
+              ],
+              "sternLeft": [
+                250.68,
+                440.19
+              ],
+              "sternRight": [
+                411.29,
+                455.19
+              ],
+              "waterline": [
+                375.77,
+                317.93
+              ],
+              "cockpitFront": [
+                395.53,
+                199.85
+              ]
+            },
+            "alphaBounds": {
+              "x": 215,
+              "y": 77,
+              "w": 304,
+              "h": 393
+            },
+            "croppedAnchors": {
+              "seat": [
+                282.59,
+                187.34
+              ],
+              "bow": [
+                347.13,
+                15.89
+              ],
+              "stern": [
+                237.81,
+                378.22
+              ],
+              "sternLeft": [
+                156.68,
+                373.19
+              ],
+              "sternRight": [
+                317.29,
+                388.19
+              ],
+              "waterline": [
+                281.77,
+                250.93
+              ],
+              "cockpitFront": [
+                301.53,
+                132.85
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 412,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 6,
+            "headingDegrees": 20,
+            "image": "rival-e32-heading+20.png",
+            "rect": {
+              "x": 0,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                369.41,
+                253.32
+              ],
+              "bow": [
+                496.53,
+                90.76
+              ],
+              "stern": [
+                281.2,
+                438.03
+              ],
+              "sternLeft": [
+                202.96,
+                425.61
+              ],
+              "sternRight": [
+                356.2,
+                455.17
+              ],
+              "waterline": [
+                367.79,
+                316.79
+              ],
+              "cockpitFront": [
+                406.7,
+                201.44
+              ]
+            },
+            "alphaBounds": {
+              "x": 177,
+              "y": 84,
+              "w": 351,
+              "h": 387
+            },
+            "croppedAnchors": {
+              "seat": [
+                275.41,
+                186.32
+              ],
+              "bow": [
+                402.53,
+                23.76
+              ],
+              "stern": [
+                187.2,
+                371.03
+              ],
+              "sternLeft": [
+                108.96,
+                358.61
+              ],
+              "sternRight": [
+                262.2,
+                388.17
+              ],
+              "waterline": [
+                273.79,
+                249.79
+              ],
+              "cockpitFront": [
+                312.7,
+                134.44
+              ]
+            },
+            "croppedRect": {
+              "x": 0,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 7,
+            "headingDegrees": 30,
+            "image": "rival-e32-heading+30.png",
+            "rect": {
+              "x": 768,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                362.67,
+                251.66
+              ],
+              "bow": [
+                548.5,
+                103.6
+              ],
+              "stern": [
+                233.72,
+                426.3
+              ],
+              "sternLeft": [
+                160.73,
+                406.87
+              ],
+              "sternRight": [
+                301.96,
+                450.08
+              ],
+              "waterline": [
+                360.3,
+                314.94
+              ],
+              "cockpitFront": [
+                417.19,
+                204.03
+              ]
+            },
+            "alphaBounds": {
+              "x": 136,
+              "y": 96,
+              "w": 419,
+              "h": 372
+            },
+            "croppedAnchors": {
+              "seat": [
+                268.67,
+                184.66
+              ],
+              "bow": [
+                454.5,
+                36.6
+              ],
+              "stern": [
+                139.72,
+                359.3
+              ],
+              "sternLeft": [
+                66.73,
+                339.87
+              ],
+              "sternRight": [
+                207.96,
+                383.08
+              ],
+              "waterline": [
+                266.3,
+                247.94
+              ],
+              "cockpitFront": [
+                323.19,
+                137.03
+              ]
+            },
+            "croppedRect": {
+              "x": 580,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          },
+          {
+            "index": 8,
+            "headingDegrees": 40,
+            "image": "rival-e32-heading+40.png",
+            "rect": {
+              "x": 1536,
+              "y": 1024,
+              "w": 768,
+              "h": 512
+            },
+            "anchors": {
+              "seat": [
+                356.57,
+                249.4
+              ],
+              "bow": [
+                595.48,
+                121.03
+              ],
+              "stern": [
+                190.8,
+                410.37
+              ],
+              "sternLeft": [
+                125.29,
+                384.52
+              ],
+              "sternRight": [
+                250.22,
+                440.07
+              ],
+              "waterline": [
+                353.53,
+                312.43
+              ],
+              "cockpitFront": [
+                426.66,
+                207.55
+              ]
+            },
+            "alphaBounds": {
+              "x": 102,
+              "y": 113,
+              "w": 499,
+              "h": 346
+            },
+            "croppedAnchors": {
+              "seat": [
+                262.57,
+                182.4
+              ],
+              "bow": [
+                501.48,
+                54.03
+              ],
+              "stern": [
+                96.8,
+                343.37
+              ],
+              "sternLeft": [
+                31.29,
+                317.52
+              ],
+              "sternRight": [
+                156.22,
+                373.07
+              ],
+              "waterline": [
+                259.53,
+                245.43
+              ],
+              "cockpitFront": [
+                332.66,
+                140.55
+              ]
+            },
+            "croppedRect": {
+              "x": 1160,
+              "y": 824,
+              "w": 580,
+              "h": 412
+            }
+          }
+        ],
+        "uniformCrop": {
+          "x": 94,
+          "y": 67,
+          "w": 580,
+          "h": 412
+        },
+        "croppedAtlas": "rival-e32-heading-atlas-cropped.png"
+      }
+    }
+  },
+  "exportedGlbAxes": {
+    "forward": "-Z",
+    "right": "+X",
+    "up": "+Y"
+  },
+  "positiveHeading": "Bow rotates toward screen right; angle 0 is directly rear-facing.",
+  "alpha": "Straight RGBA PNG transparency; no ground, water, character, wake, or dither.",
+  "anchorUnits": "Pixels from top-left of the full 768 x 512 frame, before any cropping.",
+  "suggestedElevations": {
+    "lowChase": 18,
+    "referenceLike": 32
+  },
+  "cropping": "Each full tile is the same size. alphaBounds is per-frame tight visible content. uniformCrop is shared across all nine frames at the same elevation. Cropped-atlas anchors subtract uniformCrop.x/y."
+}

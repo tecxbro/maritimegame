@@ -1,0 +1,315 @@
+{
+  "status": "PASS",
+  "patternModes": {
+    "fast": [
+      {
+        "check": "PASS ACTUAL RENDERER API",
+        "data": {
+          "frames": 648,
+          "patternMode": "fast",
+          "patternTransforms": 154790,
+          "drawImageCalls": 115583,
+          "otherCanvasCalls": 1254752,
+          "wakes": 90
+        }
+      },
+      {
+        "check": "PASS NEAR-PLANE / LANES / SHARP BENDS",
+        "data": {
+          "frames": 846,
+          "stats": {
+            "clipCrossings": 24000,
+            "clippedPolygons": 23154,
+            "partialBoatAtlases": 95,
+            "primitiveBoats": 0,
+            "fallbackMissingGrass": 0,
+            "fallbackCoveredTriangles": 0,
+            "fallbackCoveredGrass": 0,
+            "solidGrassFallbacks": 0
+          },
+          "bends": [
+            729,
+            909,
+            1119,
+            1794,
+            1347,
+            525
+          ],
+          "draws": 148558,
+          "calls": 1582095
+        }
+      },
+      {
+        "check": "PASS CACHE / IMMUTABILITY / BACKING CAP",
+        "data": {
+          "cacheBefore": 582,
+          "maxCache": 1800,
+          "frames": 956,
+          "scales": [
+            {
+              "w": 1280,
+              "h": 720,
+              "pixels": 921600,
+              "scale": 1
+            },
+            {
+              "w": 390,
+              "h": 844,
+              "pixels": 329160,
+              "scale": 1
+            },
+            {
+              "w": 1920,
+              "h": 1080,
+              "pixels": 999750,
+              "scale": 0.694
+            },
+            {
+              "w": 3840,
+              "h": 2160,
+              "pixels": 999750,
+              "scale": 0.347
+            }
+          ]
+        }
+      },
+      {
+        "check": "PASS PATTERN BRANCH",
+        "data": {
+          "patternMode": "fast",
+          "patternTransforms": 219833,
+          "stackDepth": 0,
+          "frames": 956,
+          "draws": 169026,
+          "calls": 1823426
+        }
+      },
+      {
+        "check": "PASS SIX LIVERIES / REAL WATER",
+        "data": {
+          "canvasCrops": 5454,
+          "liveries": 6,
+          "waterFrames": 957,
+          "frames": 956
+        }
+      },
+      {
+        "check": "PASS FALLBACK UV COVERAGE",
+        "data": {
+          "patternMode": "fast",
+          "coveredTriangles": 0,
+          "coveredGrass": 0,
+          "solidGrassFallbacks": 0
+        }
+      }
+    ],
+    "fallback": [
+      {
+        "check": "PASS ACTUAL RENDERER API",
+        "data": {
+          "frames": 648,
+          "patternMode": "fallback",
+          "patternTransforms": 0,
+          "drawImageCalls": 115583,
+          "otherCanvasCalls": 1564332,
+          "wakes": 90
+        }
+      },
+      {
+        "check": "PASS NEAR-PLANE / LANES / SHARP BENDS",
+        "data": {
+          "frames": 846,
+          "stats": {
+            "clipCrossings": 24000,
+            "clippedPolygons": 23154,
+            "partialBoatAtlases": 95,
+            "primitiveBoats": 0,
+            "fallbackMissingGrass": 0,
+            "fallbackCoveredTriangles": 191770,
+            "fallbackCoveredGrass": 112464,
+            "solidGrassFallbacks": 0
+          },
+          "bends": [
+            729,
+            909,
+            1119,
+            1794,
+            1347,
+            525
+          ],
+          "draws": 148558,
+          "calls": 1965635
+        }
+      },
+      {
+        "check": "PASS CACHE / IMMUTABILITY / BACKING CAP",
+        "data": {
+          "cacheBefore": 582,
+          "maxCache": 1800,
+          "frames": 956,
+          "scales": [
+            {
+              "w": 1280,
+              "h": 720,
+              "pixels": 921600,
+              "scale": 1
+            },
+            {
+              "w": 390,
+              "h": 844,
+              "pixels": 329160,
+              "scale": 1
+            },
+            {
+              "w": 1920,
+              "h": 1080,
+              "pixels": 999750,
+              "scale": 0.694
+            },
+            {
+              "w": 3840,
+              "h": 2160,
+              "pixels": 999750,
+              "scale": 0.347
+            }
+          ]
+        }
+      },
+      {
+        "check": "PASS PATTERN BRANCH",
+        "data": {
+          "patternMode": "fallback",
+          "patternTransforms": 0,
+          "stackDepth": 0,
+          "frames": 956,
+          "draws": 169026,
+          "calls": 2263092
+        }
+      },
+      {
+        "check": "PASS SIX LIVERIES / REAL WATER",
+        "data": {
+          "canvasCrops": 5454,
+          "liveries": 6,
+          "waterFrames": 957,
+          "frames": 956
+        }
+      },
+      {
+        "check": "PASS FALLBACK UV COVERAGE",
+        "data": {
+          "patternMode": "fallback",
+          "coveredTriangles": 219833,
+          "coveredGrass": 128427,
+          "solidGrassFallbacks": 0
+        }
+      }
+    ],
+    "null": [
+      {
+        "check": "PASS ACTUAL RENDERER API",
+        "data": {
+          "frames": 648,
+          "patternMode": "null",
+          "patternTransforms": 0,
+          "drawImageCalls": 115583,
+          "otherCanvasCalls": 1564332,
+          "wakes": 90
+        }
+      },
+      {
+        "check": "PASS NEAR-PLANE / LANES / SHARP BENDS",
+        "data": {
+          "frames": 846,
+          "stats": {
+            "clipCrossings": 24000,
+            "clippedPolygons": 23154,
+            "partialBoatAtlases": 95,
+            "primitiveBoats": 0,
+            "fallbackMissingGrass": 0,
+            "fallbackCoveredTriangles": 191770,
+            "fallbackCoveredGrass": 112464,
+            "solidGrassFallbacks": 112464
+          },
+          "bends": [
+            729,
+            909,
+            1119,
+            1794,
+            1347,
+            525
+          ],
+          "draws": 148558,
+          "calls": 1965635
+        }
+      },
+      {
+        "check": "PASS CACHE / IMMUTABILITY / BACKING CAP",
+        "data": {
+          "cacheBefore": 582,
+          "maxCache": 1800,
+          "frames": 956,
+          "scales": [
+            {
+              "w": 1280,
+              "h": 720,
+              "pixels": 921600,
+              "scale": 1
+            },
+            {
+              "w": 390,
+              "h": 844,
+              "pixels": 329160,
+              "scale": 1
+            },
+            {
+              "w": 1920,
+              "h": 1080,
+              "pixels": 999750,
+              "scale": 0.694
+            },
+            {
+              "w": 3840,
+              "h": 2160,
+              "pixels": 999750,
+              "scale": 0.347
+            }
+          ]
+        }
+      },
+      {
+        "check": "PASS PATTERN BRANCH",
+        "data": {
+          "patternMode": "null",
+          "patternTransforms": 0,
+          "stackDepth": 0,
+          "frames": 956,
+          "draws": 169026,
+          "calls": 2263092
+        }
+      },
+      {
+        "check": "PASS SIX LIVERIES / REAL WATER",
+        "data": {
+          "canvasCrops": 5454,
+          "liveries": 6,
+          "waterFrames": 957,
+          "frames": 956
+        }
+      },
+      {
+        "check": "PASS FALLBACK UV COVERAGE",
+        "data": {
+          "patternMode": "null",
+          "coveredTriangles": 219833,
+          "coveredGrass": 128427,
+          "solidGrassFallbacks": 128427
+        }
+      }
+    ]
+  },
+  "totalReportedFrames": 2868,
+  "actualRendererDraws": 2871,
+  "failures": 0,
+  "limitation": "Instrumented Canvas API smoke; not browser screenshot/pixel QA or performance measurement."
+}

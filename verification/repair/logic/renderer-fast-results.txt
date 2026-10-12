@@ -1,0 +1,4 @@
+PASS ACTUAL RENDERER API {"frames":648,"patternMode":"fast","patternTransforms":150819,"drawImageCalls":59746,"otherCanvasCalls":2019615,"wakes":40}
+PASS NEAR-PLANE / LANES / SHARP BENDS {"frames":846,"stats":{"clipCrossings":24028,"clippedPolygons":24382,"partialBoatAtlases":93,"primitiveBoats":0},"bends":[729,909,1119,1794,1347,525],"draws":74380,"calls":2571028}
+PASS CACHE / IMMUTABILITY / BACKING CAP {"cacheBefore":582,"maxCache":1800,"frames":956,"scales":[{"w":1280,"h":720,"pixels":921600,"scale":1},{"w":390,"h":844,"pixels":329160,"scale":1},{"w":1920,"h":1080,"pixels":999750,"scale":0.694},{"w":3840,"h":2160,"pixels":999750,"scale":0.347}]}
+PASS PATTERN BRANCH {"patternMode":"fast","patternTransforms":214312,"stackDepth":0,"frames":956,"draws":84827,"calls":2934414}

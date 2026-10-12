@@ -1,0 +1,97 @@
+{
+  "results": [
+    {
+      "name": "All captain/livery mesh compilation and geometry",
+      "status": "PASS",
+      "details": [
+        {
+          "id": "muse",
+          "vertices": 1049,
+          "faces": 1630
+        },
+        {
+          "id": "grok",
+          "vertices": 924,
+          "faces": 1480
+        },
+        {
+          "id": "dot",
+          "vertices": 994,
+          "faces": 1564
+        },
+        {
+          "id": "fofo",
+          "vertices": 1442,
+          "faces": 2364
+        },
+        {
+          "id": "instinct",
+          "vertices": 704,
+          "faces": 1020
+        },
+        {
+          "id": "openclaw",
+          "vertices": 1215,
+          "faces": 1942
+        }
+      ]
+    },
+    {
+      "name": "Finite hull/captain projection all angles/views/viewports",
+      "status": "PASS",
+      "details": {
+        "frames": 1296,
+        "minFaces": 1,
+        "maxFaces": 1,
+        "fills": 1296
+      }
+    },
+    {
+      "name": "Subdegree rotation is continuous with no quantized frames",
+      "status": "PASS",
+      "details": {
+        "distinctAdjacentAngles": 100,
+        "stepRadians": 0.001,
+        "minChange": 3.3785109218814733,
+        "maxChange": 3.394903613012072
+      }
+    },
+    {
+      "name": "Near-plane clipping emits finite triangles and bounded inverse depth",
+      "status": "PASS",
+      "details": {
+        "cases": 240,
+        "triangles": 74128
+      }
+    },
+    {
+      "name": "Depth order, inverse-depth interpolation and watertight diagonal",
+      "status": "PASS",
+      "details": "Per-pixel depth resolves overlaps and shared triangle edges remain filled"
+    },
+    {
+      "name": "Smooth shading gradient, winding and perspective-correct interpolation",
+      "status": "PASS",
+      "details": {
+        "paletteLevels": 64,
+        "perspectiveCorrectSample": 1008,
+        "expected": 1008
+      }
+    },
+    {
+      "name": "Fully behind-camera boat is culled",
+      "status": "PASS"
+    },
+    {
+      "name": "Six boat projection/sort overhead smoke",
+      "status": "PASS",
+      "details": {
+        "frames": 60,
+        "medianMs": 3.654829999999947,
+        "p95Ms": 4.2210760000002665,
+        "note": "Native Node math plus validating Canvas mocks. Not browser rendering time."
+      }
+    }
+  ],
+  "failures": 0
+}

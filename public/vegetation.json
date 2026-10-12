@@ -1,0 +1,258 @@
+{
+  "file": "tropical-vegetation-atlas.png",
+  "generator": "OpenAI built-in ImageGen",
+  "image_size_px": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "pixel_data_unchanged": true,
+  "sha256": "ebca2c1eea68fb6fc9aef6cfb81fb801d436384267aaa02b4ae9592bb6dbba9c",
+  "bbox_alpha_threshold": 16,
+  "bbox_convention": "x0,y0 inclusive; x1,y1 exclusive; source pixel coordinates from top-left",
+  "rendering": {
+    "alpha_test": 0.18,
+    "transparent": false,
+    "depth_write": true,
+    "double_sided": true,
+    "color_space": "sRGB",
+    "recommended_orientation": "Upright camera-facing billboards; preserve vertical axis. Apply base anchors rather than centering trunk bases.",
+    "notes": "PNG has authentic alpha, though transparent pixels retain green RGB. Some raw image previews ignore alpha and show that hidden background. Threshold discards faint alpha speckles without altering file. Use clumps in staggered overlapping rows."
+  },
+  "alpha_validation": {
+    "range": [
+      0,
+      254
+    ],
+    "fully_transparent_pixels": 600414,
+    "pixels_alpha_le5": 790975,
+    "pixels_alpha_ge245": 509386
+  },
+  "sprites": [
+    {
+      "name": "palm_left",
+      "cell_xyxy": [
+        0,
+        0,
+        512,
+        534
+      ],
+      "visible_alpha_bbox_xyxy": [
+        17,
+        9,
+        455,
+        527
+      ],
+      "crop_xywh": [
+        13,
+        5,
+        446,
+        526
+      ],
+      "uv_top_left": [
+        0.008463541666666666,
+        0.0048828125,
+        0.298828125,
+        0.5185546875
+      ],
+      "uv_three_texture_offset": [
+        0.008463541666666666,
+        0.4814453125
+      ],
+      "uv_three_texture_repeat": [
+        0.2903645833333333,
+        0.513671875
+      ],
+      "base_anchor_source_xy": [
+        346.0,
+        526
+      ],
+      "base_anchor_crop_normalized": [
+        0.7466367713004485,
+        0.9904942965779467
+      ],
+      "suggested_world_height_m": 15,
+      "suggested_world_width_m": 12.72
+    },
+    {
+      "name": "palm_center",
+      "cell_xyxy": [
+        512,
+        0,
+        1024,
+        534
+      ],
+      "visible_alpha_bbox_xyxy": [
+        569,
+        8,
+        974,
+        532
+      ],
+      "crop_xywh": [
+        565,
+        4,
+        413,
+        530
+      ],
+      "uv_top_left": [
+        0.3678385416666667,
+        0.00390625,
+        0.63671875,
+        0.521484375
+      ],
+      "uv_three_texture_offset": [
+        0.3678385416666667,
+        0.478515625
+      ],
+      "uv_three_texture_repeat": [
+        0.2688802083333333,
+        0.517578125
+      ],
+      "base_anchor_source_xy": [
+        767.0,
+        531
+      ],
+      "base_anchor_crop_normalized": [
+        0.4891041162227603,
+        0.9943396226415094
+      ],
+      "suggested_world_height_m": 17,
+      "suggested_world_width_m": 13.25
+    },
+    {
+      "name": "palm_right",
+      "cell_xyxy": [
+        1024,
+        0,
+        1536,
+        534
+      ],
+      "visible_alpha_bbox_xyxy": [
+        1091,
+        9,
+        1523,
+        527
+      ],
+      "crop_xywh": [
+        1087,
+        5,
+        440,
+        526
+      ],
+      "uv_top_left": [
+        0.7076822916666666,
+        0.0048828125,
+        0.994140625,
+        0.5185546875
+      ],
+      "uv_three_texture_offset": [
+        0.7076822916666666,
+        0.4814453125
+      ],
+      "uv_three_texture_repeat": [
+        0.2864583333333333,
+        0.513671875
+      ],
+      "base_anchor_source_xy": [
+        1194.0,
+        526
+      ],
+      "base_anchor_crop_normalized": [
+        0.2431818181818182,
+        0.9904942965779467
+      ],
+      "suggested_world_height_m": 16,
+      "suggested_world_width_m": 13.38
+    },
+    {
+      "name": "jungle_left",
+      "cell_xyxy": [
+        0,
+        534,
+        768,
+        1024
+      ],
+      "visible_alpha_bbox_xyxy": [
+        15,
+        536,
+        743,
+        1011
+      ],
+      "crop_xywh": [
+        11,
+        534,
+        736,
+        481
+      ],
+      "uv_top_left": [
+        0.007161458333333333,
+        0.521484375,
+        0.486328125,
+        0.9912109375
+      ],
+      "uv_three_texture_offset": [
+        0.007161458333333333,
+        0.0087890625
+      ],
+      "uv_three_texture_repeat": [
+        0.4791666666666667,
+        0.4697265625
+      ],
+      "base_anchor_source_xy": [
+        379.0,
+        1010
+      ],
+      "base_anchor_crop_normalized": [
+        0.5,
+        0.9896049896049897
+      ],
+      "suggested_world_height_m": 12,
+      "suggested_world_width_m": 18.36
+    },
+    {
+      "name": "jungle_right",
+      "cell_xyxy": [
+        768,
+        534,
+        1536,
+        1024
+      ],
+      "visible_alpha_bbox_xyxy": [
+        792,
+        534,
+        1505,
+        1011
+      ],
+      "crop_xywh": [
+        788,
+        534,
+        721,
+        481
+      ],
+      "uv_top_left": [
+        0.5130208333333334,
+        0.521484375,
+        0.982421875,
+        0.9912109375
+      ],
+      "uv_three_texture_offset": [
+        0.5130208333333334,
+        0.0087890625
+      ],
+      "uv_three_texture_repeat": [
+        0.4694010416666667,
+        0.4697265625
+      ],
+      "base_anchor_source_xy": [
+        1148.5,
+        1010
+      ],
+      "base_anchor_crop_normalized": [
+        0.5,
+        0.9896049896049897
+      ],
+      "suggested_world_height_m": 14,
+      "suggested_world_width_m": 20.99
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "version": "7.0.0",
+  "onePlayerOneAI": false,
+  "networkMultiplayer": false,
+  "laps": 2,
+  "captains": 6,
+  "graphics": [
+    "color"
+  ],
+  "activeRenderer": "CPU depth-buffered 3D fleet with Canvas projected environment",
+  "gpuCandidate": "archived; WebGL unavailable in cloud browser",
+  "gpuPathVerified": false,
+  "physicalMobileTouchTested": false,
+  "actualXEmbedTested": false,
+  "repairVerification": "verification/repair",
+  "onePlayerFiveAI": true,
+  "graphicsVerification": "verification/graphics-six",
+  "motionVerification": "verification/motion-repair",
+  "discreteBoatSpriteFrames": false,
+  "live3DCaptains": true
+}
